@@ -1,3 +1,5 @@
+'use client';
+
 import {
     HoverCard,
     Group,
@@ -26,7 +28,11 @@ import {
     IconFingerprint,
     IconCoin,
     IconChevronDown,
+    IconDownload,
+    IconArrowUpRight,
   } from '@tabler/icons-react';
+  import Image from 'next/image';
+import Link from 'next/link';
   import classes from './Header.module.css';
 
   const mockdata = [
@@ -89,12 +95,12 @@ import {
       <Box pb={120}>
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
-            {/* <MantineLogo size={30} /> */}
+            <Image src="/logo.png" alt="Al Akhyar Islamic School" width={215} height={40} loading="lazy" />
 
             <Group h="100%" gap={0} visibleFrom="sm">
-              <a href="#" className={classes.link}>
+              <Link href="/" className={classes.link}>
                 Home
-              </a>
+              </Link>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a href="#" className={classes.link}>
@@ -148,8 +154,8 @@ import {
             </Group>
 
             <Group visibleFrom="sm">
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+              <Button variant="default" leftSection={<IconDownload size={14} />} radius="md">Unduh Brosur</Button>
+              <Button radius="md" component="a" href="https://alakhyar.sch.id" target="_blank" rightSection={<IconArrowUpRight size={20} />}>Official Website</Button>
             </Group>
 
             <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
