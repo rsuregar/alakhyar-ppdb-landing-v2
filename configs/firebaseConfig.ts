@@ -1,7 +1,7 @@
 // configs/firebaseConfig.ts
 
 import { initializeApp } from 'firebase/app';
-import { getRemoteConfig } from 'firebase/remote-config';
+import { getRemoteConfig, RemoteConfig } from 'firebase/remote-config';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY as string,
@@ -14,6 +14,15 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const remoteConfig = typeof window !== 'undefined' ? getRemoteConfig(app) : null;
+// Initialize Remote Config
+// Initialize Remote Config
+let remoteConfig: RemoteConfig | null = null;
+if (typeof window !== 'undefined') {
+  remoteConfig = getRemoteConfig(app);
+  // Set fetch interval based on environment
+  remoteConfig.settings.minimumFetchIntervalMillis = process.env.NODE_ENV === 'production' 
+    ? 300000 // 10 minutes
+    : 0;     // 0 for development
+}
 
 export { remoteConfig };

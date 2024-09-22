@@ -9,20 +9,15 @@ export const useFirebase = (key: string): string | number | boolean | object | n
 
   useEffect(() => {
     const getConfigValue = async () => {
-      const firebaseRemoteConfig = remoteConfig;
-      if (firebaseRemoteConfig) {
+      if (remoteConfig) {
         try {
-          await fetchAndActivate(firebaseRemoteConfig);
-          const value = getValue(firebaseRemoteConfig, key);
-        //   console.log('Remote config value', value.asString());
-          
-          // Set the value based on its type
-          let parsedValue: string | number | boolean | object | null = null;
-
-          // Get the raw string value
+          await fetchAndActivate(remoteConfig);
+          const value = getValue(remoteConfig, key);
           const rawValue = value.asString();
 
-          // Try to parse as JSON first
+          // Try to parse as JSON, then check for other types
+          let parsedValue: string | number | boolean | object | null = null;
+
           try {
             parsedValue = JSON.parse(rawValue);
           } catch {
