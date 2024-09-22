@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ReactNode, RefObject, useEffect, useRef } from "react";
 
 export interface BaseParticle {

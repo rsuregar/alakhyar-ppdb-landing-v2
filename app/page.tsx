@@ -5,10 +5,9 @@ import { Button } from "@/components/ui/button";
 import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
 import { sendGTMEvent } from '@next/third-parties/google'
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
-  const { value, loading } = useFirebase(remoteConfigs.PPDB_TAHUN_AJARAN as string);
+  const { value } = useFirebase(remoteConfigs.PPDB_TAHUN_AJARAN as string);
 
 
   const handleClick = () => {
