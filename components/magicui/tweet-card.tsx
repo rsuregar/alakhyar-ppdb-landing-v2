@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Suspense } from "react";
 import {
   enrichTweet,
@@ -211,12 +213,13 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => (
     )}
     {!tweet.video &&
       !tweet.photos &&
-      // @ts-ignore
+      // @ts-expect-error
       tweet?.card?.binding_values?.thumbnail_image_large?.image_value.url && (
         <img
-          // @ts-ignore
+          // @ts-expect-error
           src={tweet.card.binding_values.thumbnail_image_large.image_value.url}
           className="h-64 rounded-xl border object-cover shadow-sm"
+          alt="Tweet media"
         />
       )}
   </div>

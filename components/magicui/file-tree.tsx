@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import React, {
@@ -134,6 +135,7 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       if (initialSelectedId) {
         expandSpecificTargetedElements(elements, initialSelectedId);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialSelectedId, elements]);
 
     const direction = dir === "rtl" ? "rtl" : "ltr";
