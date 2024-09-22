@@ -1,43 +1,58 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { fontSans } from "@/lib/fonts";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SiteHeader } from "@/components/site-header";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
-import type { Viewport } from 'next'
- 
+import type { Viewport } from "next";
+import { SiteFooter } from "@/components/site-footer";
+
 export const viewport: Viewport = {
-  themeColor: '#045591',
-  colorScheme: 'light dark',
-}
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#045591" },
+    { media: "(prefers-color-scheme: dark)", color: "#045591" },
+  ],
+};
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
-  title: "PPDB Al Akhyar Islamic School",
-  description: "Penerimaan Peserta Didik Baru. Bergabung bersama Al Akhyar Islamic School Unggul dan Berprestasi.",
-  keywords: 'PPDB Alakhyar, sekolah islam, sekolah islam makassar, SD, SMP, SMA, TK, PAUD, Alakhyar, Alakhyar Islamic School, PPDB, Penerimaan Peserta Didik Baru, PPDB Alakhyar, PPDB Alakhyar Islamic School, PPDB Makassar, PPDB Sekolah Islam, PPDB Sekolah Islam Makassar, PPDB SD, PPDB SMP, PPDB SMA, PPDB TK, PPDB PAUD',
-  appleWebApp: true,
+  title: {
+    default: siteConfig.title,
+    template: `%s - ${siteConfig.title}`,
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/assets/favicon-16x16.png",
+    apple: "/assets/apple-touch-icon.png",
+  },
+  description: siteConfig.description,
+  // appleWebApp: true,
   appLinks: {
     web: {
-      'url': 'https://ppdb.alakhyar.sch.id',
-      'should_fallback': false,
-    }
+      url: "https://ppdb.alakhyar.sch.id",
+      should_fallback: false,
+    },
   },
   openGraph: {
-    title: 'PPDB Al Akhyar Islamic School',
-    description: "Penerimaan Peserta Didik Baru. Bergabung bersama Al Akhyar Islamic School Unggul dan Berprestasi.",
-    images: ['/assets/logo-alakhyar.png'],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/assets/logo-alakhyar.png"],
   },
 };
 
@@ -47,12 +62,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
-      <body
+      {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      > */}
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
       >
-        <main>{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+
+            </div> */}
+          <>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </>
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );

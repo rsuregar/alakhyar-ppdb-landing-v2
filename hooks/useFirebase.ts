@@ -1,20 +1,18 @@
-// hooks/useFirebase.ts
-
 'use client';
 
-import { remoteConfig } from '@/configs/firebaseConfig';
+import { remoteConfig } from '@/config/firebaseConfig';
 import { getValue, fetchAndActivate } from 'firebase/remote-config';
 import { useState, useEffect } from 'react';
 import { defaultRemoteConfigValues } from '@/types/firebase'; // Adjust the import path
 
-type FirebaseValue = string | number | boolean | object | null;
+type FirebaseValue = string | number | boolean | Record<string, any> | null;
 
 interface UseFirebaseResult {
   value: FirebaseValue;
   loading: boolean;
 }
 
-export const useFirebase = (key: any): UseFirebaseResult => {
+export const useFirebase = (key: string): UseFirebaseResult => {
   const [configValue, setConfigValue] = useState<FirebaseValue>(defaultRemoteConfigValues[key]);
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +31,7 @@ export const useFirebase = (key: any): UseFirebaseResult => {
 
           // Try to parse as JSON first
           try {
-            parsedValue = JSON.parse(rawValue);
+            parsedValue = JSON.parse(rawValue) as Record<string, any>; // Assume parsed value is a Record if JSON
           } catch {
             // If JSON parsing fails, check if it's a number or boolean
             if (!isNaN(Number(rawValue))) {
