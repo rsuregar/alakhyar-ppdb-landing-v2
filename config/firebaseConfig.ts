@@ -21,8 +21,8 @@ if (typeof window !== 'undefined') {
   remoteConfig = getRemoteConfig(app);
   // Set fetch interval based on environment
   remoteConfig.settings.minimumFetchIntervalMillis = process.env.NODE_ENV === 'production' 
-    ? 300000 // 10 minutes
-    : 0;     // 0 for development
+    ? 300000 // 5 minutes
+    : 100000; // for development
 }
 
 export { remoteConfig };

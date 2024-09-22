@@ -9,7 +9,7 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_JADWAL: "Default schedule",
   PPDB_GELOMBANG: "Default wave",
   PPDB_DEV_VERSION: "1.0.0",
-  PPDB_COMING_SOON_INFO: "Coming soon!",
+  PPDB_COMING_SOON_INFO: null,
   PPDB_BROSUR_URL: "https://default.url",
   PPDB_BERKAS: "Default document",
   PPDB_BANNER: "Default banner",
