@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { useFirebase } from "@/hooks/useFirebase";
 import { NavLink } from "@/app/components/NavLink";
+import { Fragment } from "react";
 
 interface MainNavProps {
   items?: NavItem[];
@@ -53,7 +54,9 @@ export function MainNav({ items }: MainNavProps) {
                 {item.title}
               </Link>
             ) : (
-              <NavLink/> // Added a key to this fallback
+              <Fragment key={index}>
+                <NavLink/>
+              </Fragment> // Added a key to this fallback
             )
           )}
         </nav>

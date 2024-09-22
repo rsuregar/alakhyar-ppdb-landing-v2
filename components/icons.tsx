@@ -2,7 +2,6 @@ import {
   LucideProps,
   Moon,
   SunMedium,
-  InstagramIcon as Instagram,
   type Icon as LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
