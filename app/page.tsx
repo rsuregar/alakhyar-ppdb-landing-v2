@@ -2,20 +2,18 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { event } from "@/lib/gtag";
 import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
+import { sendGTMEvent } from '@next/third-parties/google'
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
-  const configValue = useFirebase(remoteConfigs.PPDB_TAHUN_AJARAN as string);
+  const { value, loading } = useFirebase(remoteConfigs.PPDB_TAHUN_AJARAN as string);
+
 
   const handleClick = () => {
-    event({
-      action: "click",
-      category: "button",
-      label: "subscribe_button",
-      value: "1",
-    });
+    sendGTMEvent({ event: 'buttonClicked', value: 'xyz' });
+    console.log("test GA", sendGTMEvent({ event: 'buttonClicked', value: 'xyz' }));
   };
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -33,7 +31,7 @@ export default function Home() {
           <li className="mb-2">
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx {configValue as string}
+              app/page.tsx {JSON.stringify(value)}
             </code>
             .
           </li>

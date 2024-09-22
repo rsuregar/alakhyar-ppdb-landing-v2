@@ -1,23 +1,37 @@
+// hooks/useFirebase.ts
+
 'use client';
 
 import { remoteConfig } from '@/configs/firebaseConfig';
 import { getValue, fetchAndActivate } from 'firebase/remote-config';
 import { useState, useEffect } from 'react';
+import { defaultRemoteConfigValues } from '@/types/firebase'; // Adjust the import path
 
-export const useFirebase = (key: string): string | number | boolean | object | null => {
-  const [configValue, setConfigValue] = useState<string | number | boolean | object | null>(null);
+type FirebaseValue = string | number | boolean | object | null;
+
+interface UseFirebaseResult {
+  value: FirebaseValue;
+  loading: boolean;
+}
+
+export const useFirebase = (key: any): UseFirebaseResult => {
+  const [configValue, setConfigValue] = useState<FirebaseValue>(defaultRemoteConfigValues[key]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getConfigValue = async () => {
-      if (remoteConfig) {
+      const firebaseRemoteConfig = remoteConfig;
+      if (firebaseRemoteConfig) {
         try {
-          await fetchAndActivate(remoteConfig);
-          const value = getValue(remoteConfig, key);
+          setLoading(true);
+          await fetchAndActivate(firebaseRemoteConfig);
+          const value = getValue(firebaseRemoteConfig, key);
+          
+          // If there's a valid fetched value, replace the default
           const rawValue = value.asString();
+          let parsedValue: FirebaseValue = defaultRemoteConfigValues[key]; // Start with default
 
-          // Try to parse as JSON, then check for other types
-          let parsedValue: string | number | boolean | object | null = null;
-
+          // Try to parse as JSON first
           try {
             parsedValue = JSON.parse(rawValue);
           } catch {
@@ -33,17 +47,20 @@ export const useFirebase = (key: string): string | number | boolean | object | n
             }
           }
 
-          setConfigValue(parsedValue);
+          setConfigValue(parsedValue); // Update state with fetched value
         } catch (error) {
           console.error('Error fetching remote config:', error);
+        } finally {
+          setLoading(false);
         }
       } else {
         console.error('Firebase remote config not initialized');
+        setLoading(false);
       }
     };
 
     getConfigValue();
-  }, [key]); // Depend on the key to refetch if it changes
+  }, [key]);
 
-  return configValue;
+  return { value: configValue, loading };
 };
