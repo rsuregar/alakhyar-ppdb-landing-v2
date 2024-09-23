@@ -5,14 +5,14 @@ import { remoteConfigs } from "@/types/firebase";
 export default function CallToAction() {
   const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
   return (
-    <section className="py-12">
+    <section className="py-12 -mb-14">
       <div className="mx-auto">
-        <div className="xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-700 to-blue-800 flex  justify-between flex-col-reverse lg:flex-row">
+        <div className="xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row">
           <div className="w-full lg:w-3/6 relative">
             <img
               src="/assets/ba-1.png"
               alt="CTA"
-              className="xl:absolute xl:bottom-0 rounded-t-3xl -mb-6 mx-auto lg:-mb-12 xl:-mb-24 lg:mx-0 object-cover"
+              className="xl:absolute xl:bottom-0 rounded-t-3xl mx-auto lg:-mb-12 xl:-mb-24 lg:mx-0 object-cover z-40"
             />
           </div>
           <div className="w-full lg:w-2/3 mt-6 sm:mt-0">

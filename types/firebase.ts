@@ -6,7 +6,7 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_PROD_VERSION: "1.0.0",
   PPDB_BIAYA: 0,
   PPDB_KETERANGAN: "Default description",
-  PPDB_JADWAL: "Default schedule",
+  PPDB_JADWAL: null,
   PPDB_GELOMBANG: "Default wave",
   PPDB_DEV_VERSION: "1.0.0",
   PPDB_COMING_SOON_INFO: null,
@@ -14,6 +14,7 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_BERKAS: "Default document",
   PPDB_BANNER: "Default banner",
   PPDB_ADDITIONAL_PROMO: "No additional promo",
+  PPDB_TOGGLE_BANNER: false,
 };
 
 // Define the object
@@ -33,5 +34,6 @@ export const remoteConfigs = {
     PPDB_BERKAS: "PPDB_BERKAS",
     PPDB_BANNER: "PPDB_BANNER",
     PPDB_ADDITIONAL_PROMO: "PPDB_ADDITIONAL_PROMO",
+    PPDB_TOGGLE_BANNER: "PPDB_TOGGLE_BANNER",
   };
 

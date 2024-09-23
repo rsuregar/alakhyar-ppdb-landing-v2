@@ -15,8 +15,8 @@ import { SiteFooter } from "@/components/site-footer";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#045591" },
     { media: "(prefers-color-scheme: dark)", color: "#045591" },
+    { media: "(prefers-color-scheme: light)", color: "#045591" },
   ],
 };
 
@@ -61,6 +61,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
@@ -74,12 +75,8 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-
-            </div> */}
           <>
+          
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />

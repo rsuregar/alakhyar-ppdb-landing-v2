@@ -19,25 +19,25 @@ export interface Diskon {
   biaya_pendidikan: string;
 }
 
-export interface BerkasOrKeterangan {
+export interface BerkasOrKeteranganOrSyarat {
   tkit: string[];
   sdit: string[];
   smpit: string[];
   smait: string[];
 }
 
-interface Gelombang {
+export interface Gelombang {
   id: string;
   diskon_alumni: string | number;
   diskon_umum: string | number;
 }
 
-interface Prestasi {
+export interface Prestasi {
   tingkat: string;
   nilai: string;
 }
 
-interface DetailBiaya {
+export interface DetailBiaya {
   formulir: number;
   uang_pangkal: number;
   infaq_sarpras?: number;
@@ -66,35 +66,35 @@ export interface Biaya {
   smait: DetailBiaya;
 }
 
-interface OpenHouse {
+export interface OpenHouse {
   tkit: string;
   sdit: string;
   smpit: string;
   smait: string;
 }
 
-interface Observasi {
+export interface Observasi {
   tkit: string;
   sdit: string;
   smpit: string;
   smait: string;
 }
 
-interface MOS {
+export interface MOS {
   tkit: boolean | string;
   sdit: boolean | string;
   smpit: string;
   smait: string;
 }
 
-interface KBM {
+export interface KBM {
   tkit: string;
   sdit: string;
   smpit: string;
   smait: string;
 }
 
-interface Kuota {
+export interface Kuota {
   tkit: number;
   sdit: number;
   smpit: number;
