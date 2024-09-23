@@ -8,7 +8,7 @@ const OfficialWebCard = () => {
     <section className="-mt-12">
       <div className="bg-transparent">
         <div className="mx-auto max-w-9xl">
-          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
               viewBox="0 0 1024 1024"
               aria-hidden="true"
@@ -23,8 +23,8 @@ const OfficialWebCard = () => {
               />
               <defs>
                 <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                  <stop stopColor="#7775D6" />
-                  <stop offset={1} stopColor="#E935C1" />
+                  <stop stopColor="#60a5fa" />
+                  <stop offset={1} stopColor="#38bdf8" />
                 </radialGradient>
               </defs>
             </svg>
@@ -36,7 +36,7 @@ const OfficialWebCard = () => {
                 Dapatkan informasi terkini dan terlengkap mengenai Al Akhyar
                 Islamic School Makassar.
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <div className="mt-10 mb-10 sm:mb-0 flex items-center justify-center gap-x-6 lg:justify-start">
                 <a
                   href="https://alakhyar.sch.id"
                   className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -45,7 +45,7 @@ const OfficialWebCard = () => {
                 </a>
               </div>
             </div>
-            <div className="relative mt-16 h-80 lg:mt-8">
+            <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block">
               <Image
                 alt="App screenshot"
                 src="/assets/alakhyar.sch.id.webp"

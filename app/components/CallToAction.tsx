@@ -17,7 +17,7 @@ export default function CallToAction() {
           </div>
           <div className="w-full lg:w-2/3 mt-6 sm:mt-0">
             <h2 className="font-sans text-3xl sm:text-5xl text-white font-black mb-7 text-center lg:text-left">
-              Unggul dan Berakhlak? <br /> Al Akhyar pilihannya.{" "}
+              Unggul dan Berakhlak? <br /> <div className="mt-3">Al Akhyar pilihannya.</div>{" "}
             </h2>
             <div className="flex items-center sm:flex-col sm:gap-7 md:flex-row lg:justify-start justify-center">
               <a
@@ -43,7 +43,7 @@ export default function CallToAction() {
                 href="https://s.alakhyar.sch.id/ppdb"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="sm:w-auto bg-white hover:bg-blue-50 focus:ring-4 focus:outline-none focus:ring-blue-300 text-primary rounded-lg inline-flex items-center justify-center px-4 py-3"
+                className="sm:w-auto bg-white hover:bg-blue-50 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sky-800 rounded-lg inline-flex items-center justify-center px-4 py-3"
               >
                 <svg
                   className="w-7 h-7 mr-3"

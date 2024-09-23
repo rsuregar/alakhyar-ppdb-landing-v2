@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -14,20 +15,18 @@ export function SiteFooter() {
 
     handleResize(); // Check initial size
     window.addEventListener("resize", handleResize);
-    
+
     return () => window.removeEventListener("resize", handleResize); // Cleanup
   }, []);
 
   return (
     <>
-      {isMobile ? (
-        <DockDemo />
-      ) : (
-        <footer className="bg-white dark:bg-gray-900">
+      <DockDemo />
+      <footer className="bg-white dark:bg-gray-900 -mt-8 sm:mt-0">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href={'https://alakhyar.sch.id'} className="flex items-center">
+              <a href={"https://alakhyar.sch.id"} className="flex items-center">
                 <img
                   className="w-auto h-8 sm:h-10"
                   src="/assets/logo-2.png"
@@ -118,14 +117,13 @@ export function SiteFooter() {
               </div>
             </div>
           </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div className="sm:flex sm:items-center sm:justify-between -mt-4 lg:mt-0 mb-10 lg:mb-0 text-xs lg:text-base text-center lg:text-left">
+          <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
+          <div className="sm:flex sm:items-center sm:justify-between -mt-4 lg:mt-0 mb-6 lg:mb-0 text-xs lg:text-base text-center lg:text-left">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2004 - {new Date().getFullYear()}{" "}
-              <a href={'https://alakhyar.sch.id'} className="hover:underline">
+              <a href={"https://alakhyar.sch.id"} className="hover:underline">
                 Al Akhyar Islamic School Makassar.
               </a>
-              <span className="invisible lg:visible"> All Rights Reserved.</span>
             </span>
             {/* <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -162,7 +160,6 @@ export function SiteFooter() {
           </div>
         </div>
       </footer>
-      )}
     </>
   );
 }
