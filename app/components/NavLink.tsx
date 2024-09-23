@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,8 +13,13 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function NavLink() {
+  const pathname = usePathname();
+   // Split the pathname by "/" and get the last part
+   const lastSegment = pathname?.split('/').filter(Boolean).pop();
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -24,7 +28,8 @@ export function NavLink() {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700"
+                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
+                lastSegment === undefined && "text-sky-700 bg-sky-100"
               )}
             >
               Home
@@ -36,7 +41,8 @@ export function NavLink() {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700"
+                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
+                lastSegment === "jadwal" && "text-sky-700 bg-sky-100"
               )}
             >
               Jadwal
@@ -44,27 +50,39 @@ export function NavLink() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="hover:bg-sky-100 rounded-lg">
-          <NavigationMenuTrigger className="hover:text-sky-700 hover:bg-sky-100 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700">
+          <NavigationMenuTrigger
+            className={cn(
+              navigationMenuTriggerStyle(),
+              "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
+              pathname.includes("jenjang") && "text-sky-700 bg-sky-100"
+            )}
+          >
             Jenjang Pendidikan
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-4">
                 <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col bg-sky-700 justify-end rounded-md bg-gradient-to-b from-sky-400 to-sky-200 p-6 no-underline outline-none focus:shadow-md dark:bg-gradient-to-b dark:from-sky-600 dark:to-sky-900"
+                  <Link
+                    className="flex h-full w-full select-none flex-col bg-sky-700 justify-end rounded-md bg-gradient-to-b from-sky-400 to-sky-200 no-underline outline-none focus:shadow-md dark:bg-gradient-to-b dark:from-sky-600 dark:to-sky-900"
                     href="/"
                   >
-                    <Icons.logo className="h-6 w-6" />
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
+                    <div className="p-4 text-sm border-l-4 border-sky-500 text-stone-700 dark:text-stone-200">
+                      <blockquote className="italic">
+                      &quot;Education is the most powerful weapon which you can use
+                        to change the world.&ldquo;
+                      </blockquote>
+                      <p className="mt-2 text-xs text-gray-600 dark:text-white">
+                        - Nelson Mandela
+                      </p>
                     </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
-                    </p>
-                  </a>
+                    <Image
+                      src="/assets/ba-2.png"
+                      alt="Logo"
+                      width={600}
+                      height={700}
+                    />
+                  </Link>
                 </NavigationMenuLink>
               </li>
               <ListItem
@@ -72,44 +90,34 @@ export function NavLink() {
                 title="RA Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                anak usia 4-6 tahun.
+                Informasi lengkap Pendaftaran calon peserta didik RA Al Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/sdit"
                 title="SD Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                anak usia 7-12 tahun.
+                Informasi lengkap Pendaftaran calon peserta didik SD Islam Al Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/smpit"
                 title="SMP Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                anak usia 13-15 tahun.
+                Informasi lengkap Pendaftaran calon peserta didik SMP Islam Al
+                Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/smait"
                 title="SMA Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                anak usia 16-18 tahun.
+                Informasi lengkap Pendaftaran calon peserta didik SMA Islam Al
+                Akhyar
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700"
-              )}
-            >
-              Brosur PPDB
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
   );
@@ -119,6 +127,8 @@ const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
+  const param = usePathname();
+  const lastSegment = param?.split("/").filter(Boolean).pop();
   return (
     <li>
       <Link ref={ref} href={props?.href as string} legacyBehavior passHref>
@@ -127,7 +137,8 @@ const ListItem = React.forwardRef<
             ref={ref}
             className={cn(
               "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-700",
-              className
+              className,
+              props?.href?.includes(lastSegment as string) && "bg-sky-100"
             )}
             {...props}
           >

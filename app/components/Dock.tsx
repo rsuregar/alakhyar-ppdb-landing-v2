@@ -14,6 +14,8 @@ import {
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+import Image from 'next/image';
+
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 const Icons = {
@@ -58,6 +60,42 @@ const Icons = {
       ></path>
     </svg>
   ),
+  smp: (props:any) => (
+    <Image
+      src="/assets/smp.png"
+      alt="SMP"
+      width={100}
+      height={100}
+      {...props}
+    />
+  ),
+  sd: (props:any) => (
+    <Image
+      src="/assets/sd.png"
+      alt="SD"
+      width={100}
+      height={100}
+      {...props}
+    />
+  ),
+  sma: (props:any) => (
+    <Image
+      src="/assets/sma.png"
+      alt="SMA"
+      width={100}
+      height={100}
+      {...props}
+    />
+  ),
+  tk: (props:any) => (
+    <Image
+      src="/assets/tk.png"
+      alt="TK"
+      width={100}
+      height={100}
+      {...props}
+    />
+  )
 };
 
 const DATA = {
@@ -70,22 +108,22 @@ const DATA = {
       'Taman Kanak-Kanak': {
         name: "Taman Kanak-Kanak",
         url: "/jenjang/tkit",
-        icon: Icons.github,
+        icon: Icons.tk,
       },
       'SD Islam': {
         name: "LinkedIn",
         url: "/jenjang/sdit",
-        icon: Icons.linkedin,
+        icon: Icons.sd,
       },
       'SMP Islam': {
         name: "X",
         url: "/jenjang/smpit",
-        icon: Icons.x,
+        icon: Icons.smp,
       },
       'SMA Islam': {
         name: "Send Email",
         url: "/jenjang/smait",
-        icon: Icons.email,
+        icon: Icons.sma,
       },
     },
   },
@@ -108,7 +146,7 @@ export function DockDemo() {
                       "size-12 rounded-full",
                     )}
                   >
-                    <item.icon className="size-4" />
+                    <item.icon className="size-5" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -122,6 +160,7 @@ export function DockDemo() {
             <DockIcon key={name}>
               <Tooltip>
                 <TooltipTrigger asChild>
+                  <div className="flex flex-col items-center justify-center">
                   <Link
                     href={social.url}
                     aria-label={social.name}
@@ -130,8 +169,9 @@ export function DockDemo() {
                       "size-12 rounded-full",
                     )}
                   >
-                    <social.icon className="size-4" />
+                    <social.icon className="size-5" />
                   </Link>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{name}</p>

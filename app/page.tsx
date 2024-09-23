@@ -3,7 +3,7 @@
 
 import { HeroSection } from "./components/Hero";
 import { TestimoniMarquee } from "./components/TestimoniMarquee";
-import { HowToRegister } from "./components/HowToRegister";
+import { HowToRegister, HowToRegisterV2 } from "./components/HowToRegister";
 import OfficialWebCard from "./components/OfficialWebsiteCard";
 import CallToAction from "./components/CallToAction";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -35,7 +35,8 @@ export default function Home() {
   };
   return (
     <>
-      <div className="mx-auto max-w-9xl">
+    <BlurFade key={"hero"} delay={0.004 * 0.05} inView>
+      <div className="mx-auto max-w-9xl mt-2">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <svg
             viewBox="0 0 1024 1024"
@@ -63,7 +64,7 @@ export default function Home() {
                   🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
                   <span
                     className={cn(
-                      `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-xs sm:text-base text-left`
+                      `inline animate-gradient bg-gradient-to-r from-white via-gray-200 to-white bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-xs sm:text-base text-left`
                     )}
                   >
                     {comingSoonData?.subtitle}
@@ -72,13 +73,13 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-5xl">
               PPDB{" "}
               {comingSoonData?.show
                 ? comingSoonData?.tahun_ajaran
                 : tahunAjaran}
             </h2>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-4xl">
               Al Akhyar Islamic School
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -89,7 +90,7 @@ export default function Home() {
             <div className="mt-10 mb-10 sm:mb-0 flex items-center justify-center gap-x-6 lg:justify-start">
               {isOpen ? (
                 <a href="https://s.alakhyar.sch.id/ppdb" onClick={handleClick}>
-                  <PulsatingButton>Daftarkan diri Sekarang</PulsatingButton>
+                  <PulsatingButton className="font-bold dark:text-white">Daftarkan Sekarang</PulsatingButton>
                 </a>
               ) : (
                 <PulsatingButton>Pendaftaran Ditutup</PulsatingButton>
@@ -107,11 +108,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+    </BlurFade>
+      
       <section className="sm:container grid items-center gap-6 pb-8 pt-28 md:py-10">
         {/* <HeroSection /> */}
         <TestimoniMarquee />
         <BlurFade key={"register"} delay={0.04 * 0.05} inView>
           <HowToRegister />
+          <HowToRegisterV2 />
         </BlurFade>
         <BlurFade key={"official"} delay={0.04 * 0.05} inView>
           <OfficialWebCard />

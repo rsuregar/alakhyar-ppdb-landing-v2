@@ -1,3 +1,19 @@
+'use client';
+
+import OfficialWebCard from "../components/OfficialWebsiteCard";
+import TimelineRegister from "../components/Timeline";
+
 export default function Page() {
-    return <h1>Hello, Dashboard Page!</h1>
+    return (
+      <>
+      <div className="p-12">
+      <div className="mb-12">
+      <TimelineRegister />
+      </div>
+      <OfficialWebCard />
+      </div>
+     
+      {/* <CallToAction /> */}
+      </>
+    )
   }
