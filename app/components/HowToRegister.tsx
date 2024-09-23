@@ -5,8 +5,6 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-// import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const BLUR_FADE_DELAY = 0.04;
 

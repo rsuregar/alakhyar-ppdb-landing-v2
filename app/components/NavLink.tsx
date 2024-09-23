@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -70,8 +69,8 @@ export function NavLink() {
                   >
                     <div className="p-4 text-sm border-l-4 border-sky-500 text-stone-700 dark:text-stone-200">
                       <blockquote className="italic">
-                        "Education is the most powerful weapon which you can use
-                        to change the world."
+                      &quot;Education is the most powerful weapon which you can use
+                        to change the world.&ldquo;
                       </blockquote>
                       <p className="mt-2 text-xs text-gray-600 dark:text-white">
                         - Nelson Mandela

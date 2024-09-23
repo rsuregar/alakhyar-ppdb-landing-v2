@@ -25,11 +25,7 @@ interface HeroCardProps {
 export const HeroCard: React.FC<HeroCardProps> = ({
   title,
   description,
-  href,
-  children,
-  tahunAjaran,
   subtitle,
-  isOpen,
   handleClick,
   color,
   image

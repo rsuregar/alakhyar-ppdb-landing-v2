@@ -1,6 +1,5 @@
 'use client';
 
-import CallToAction from "../components/CallToAction";
 import OfficialWebCard from "../components/OfficialWebsiteCard";
 import TimelineRegister from "../components/Timeline";
 

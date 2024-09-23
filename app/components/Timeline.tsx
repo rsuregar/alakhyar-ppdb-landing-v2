@@ -1,9 +1,9 @@
 "use client";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Skeleton } from "@/components/ui/skeleton";
 import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
-import { Jadwal, OpenHouse } from "@/types/ppdb";
+import { Jadwal } from "@/types/ppdb";
 import React from "react";
 
 const TimelineRegister = () => {
