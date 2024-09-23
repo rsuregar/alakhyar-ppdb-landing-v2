@@ -9,7 +9,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export function HowToRegister() {
   return (
-    <div className="relative max-w-9xl sm:mt-16 mb-8 mx-auto text-center">
+    <div className="relative max-w-9xl sm:mt-6 mb-8 mx-auto text-center">
       <section className="sm:mb-8">
         <div className="flex-col flex justify-center items-center flex-1 space-y-1.5">
           <BlurFadeText
@@ -18,7 +18,7 @@ export function HowToRegister() {
             yOffset={8}
             text={
               <>
-                <p className="text-sm text-gray-900 dark:text-stone-300 font-medium  mt-4">
+                <p className="text-sm sm:text-lg text-gray-900 dark:text-stone-300 font-medium  mt-4">
                   Bagaimana Cara Mendaftar
                 </p>
                 <div className="text-xl font-extrabold sm:text-5xl sm:font-bold mb-9 dark:text-stone-300">
@@ -31,8 +31,8 @@ export function HowToRegister() {
       </section>
       <img src="/assets/pattern.png" className="w-full" alt="pattern" />
       <div
-        className="absolute mt-6"
-        style={{ top: "15%", left: "14%", width: "72%", height: "66%" }}
+        className="absolute mt-6 sm:mt-0 top-[15%] sm:left-[14%] sm:w-[72%] sm:h-[66%] w-full h-full left-0"
+        // style={{ top: "15%", left: "14%", width: "72%", height: "66%" }}
       >
         <HeroVideoDialog
           className="dark:hidden block"

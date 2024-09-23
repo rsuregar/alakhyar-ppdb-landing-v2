@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Import usePathname for checking active route
+// import { usePathname } from "next/navigation"; // Import usePathname for checking active route
 
 import { NavItem } from "@/types/nav";
 import { siteConfig } from "@/config/site";
@@ -10,14 +10,14 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { useFirebase } from "@/hooks/useFirebase";
 import { NavLink } from "@/app/components/NavLink";
-import { Fragment } from "react";
+// import { Fragment } from "react";
 
 interface MainNavProps {
   items?: NavItem[];
 }
 
 export function MainNav({ items }: MainNavProps) {
-  const pathname = usePathname(); // Get current path
+  // const pathname = usePathname(); // Get current path
   const { value: tahunAjaran } = useFirebase("PPDB_TAHUN_AJARAN") as any;
 
   const [isMobile, setIsMobile] = React.useState(false);
@@ -35,12 +35,12 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10 justify-evenly items-center">
       <Link href="/" className={cn("flex items-center space-x-2")}>
-        <Icons.logoV2 width="48" height="48" />
+        <Icons.logoV2 width="40" height="40" />
         <span className="inline-block">{siteConfig.title} <br/><div className="text-xs -mt-1">Penerimaan Peserta Didik Baru {tahunAjaran}</div></span>
       </Link>
       {items?.length && !isMobile ? (
         <nav className="sm:flex gap-6 hidden">
-          {items?.map((item, index) =>
+          {/* {items?.map((item, index) =>
             item.href ? (
               <Link
                 key={index}
@@ -58,7 +58,8 @@ export function MainNav({ items }: MainNavProps) {
                 <NavLink/>
               </Fragment> // Added a key to this fallback
             )
-          )}
+          )} */}
+          <NavLink/>
         </nav>
       ) : null}
     </div>
