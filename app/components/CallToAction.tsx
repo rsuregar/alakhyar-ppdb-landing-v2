@@ -1,13 +1,16 @@
 import { useFirebase } from "@/hooks/useFirebase";
+import { cn } from "@/lib/utils";
 import { remoteConfigs } from "@/types/firebase";
 
 /* eslint-disable @next/next/no-img-element */
-export default function CallToAction() {
+export default function CallToAction({rounded = false}: {rounded?: boolean}) {
   const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
   return (
     <section className="py-12 -mb-14">
       <div className="mx-auto">
-        <div className="xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row">
+        <div className={cn("xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row",
+          rounded ? "rounded-3xl" : "rounded-none"
+        )}>
           <div className="w-full lg:w-3/6 relative">
             <img
               src="/assets/ba-1.png"
