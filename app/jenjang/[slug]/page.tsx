@@ -4,6 +4,7 @@ import OfficialWebCard from "@/app/components/OfficialWebsiteCard";
 import { Accordions, HeroCard } from "../component/HeroCard";
 import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
+import CallToAction from "@/app/components/CallToAction";
 
 const colors = {
   tkit: {
@@ -135,6 +136,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
       </div>
       <div className="my-20"></div>
       <OfficialWebCard />
+      <CallToAction rounded />
     </div>
   );
 };
