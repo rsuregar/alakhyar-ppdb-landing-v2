@@ -15,6 +15,7 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_BANNER: "Default banner",
   PPDB_ADDITIONAL_PROMO: "No additional promo",
   PPDB_TOGGLE_BANNER: false,
+  PPDB_TESTIMONI: null,
 };
 
 // Define the object
@@ -35,5 +36,6 @@ export const remoteConfigs = {
     PPDB_BANNER: "PPDB_BANNER",
     PPDB_ADDITIONAL_PROMO: "PPDB_ADDITIONAL_PROMO",
     PPDB_TOGGLE_BANNER: "PPDB_TOGGLE_BANNER",
+    PPDB_TESTIMONI: "PPDB_TESTIMONI",
   };
 
