@@ -1,60 +1,27 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
+import { useFirebase } from "@/hooks/useFirebase";
 
-const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
-  {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
-  },
-  {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
-  },
-];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+const avatarApi = (name: string) => {
+  return encodeURI(`https://ui-avatars.com/api/?name=${name}}&color=7F9CF5&background=EBF4FF&size=32&font-size=0.33&rounded=true`);
+}
 
 const ReviewCard = ({
-  img,
+  avatar,
   name,
-  username,
-  body,
+  title,
+  description,
 }: {
-  img: string;
+  avatar: string;
   name: string;
-  username: string;
-  body: string;
+  title: string;
+  description: string;
 }) => {
+
   return (
     <figure
       className={cn(
@@ -66,20 +33,26 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="32" height="32" alt={name} src={avatarApi(name)} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-xs font-medium dark:text-white/40">{title}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-2 text-sm">{description}</blockquote>
     </figure>
   );
 };
 
 export function TestimoniMarquee() {
+  const { value } = useFirebase("PPDB_TESTIMONI") as any;
+  const firstRow = value?.slice(0, value.length / 2);
+  const secondRow = value?.slice(value.length / 2);
+
+  console.log(value);
+  if (!value) return null;
   return (
     <>
       <div className="w-full px-4  md:mb-0 text-center">
@@ -94,13 +67,13 @@ export function TestimoniMarquee() {
 
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+          {firstRow.map((review: any) => (
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
         <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+          {secondRow.map((review: any) => (
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
