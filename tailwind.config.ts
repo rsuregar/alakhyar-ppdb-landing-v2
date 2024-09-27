@@ -96,7 +96,7 @@ const config = {
       fontFamily: {
         sans: "var(--font-sans)",
         body: "var(--font-sans)",
-        mono: "var(--font-mono)",
+        // mono: "var(--font-mono)",
       }
     },
   },

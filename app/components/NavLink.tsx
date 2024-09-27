@@ -136,9 +136,9 @@ const ListItem = React.forwardRef<
           <a
             ref={ref}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-700",
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-300 dark:hover:text-sky-700",
               className,
-              props?.href?.includes(lastSegment as string) && "bg-sky-100"
+              props?.href?.includes(lastSegment as string) && "bg-sky-50 dark:text-sky-700"
             )}
             {...props}
           >
