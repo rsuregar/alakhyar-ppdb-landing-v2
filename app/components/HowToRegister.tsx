@@ -81,7 +81,7 @@ export function Keunggulan() {
           </div>
           <div className="w-full md:w-1/2 px-4">
             <img
-              src="/assets/howto.jpg"
+              src="/assets/unggul.webp"
               className="w-full rounded-xl z-50"
               alt="pattern"
             />
