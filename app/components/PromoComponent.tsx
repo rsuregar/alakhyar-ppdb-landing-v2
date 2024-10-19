@@ -67,21 +67,21 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
         </p>
         <div className="flex flex-col md:flex-row gap-2 justify-center mt-6">
           <ShinyButton
-            className="bg-white font-bold"
+            className="bg-white font-bold dark:bg-black dark:font-bold"
             onClick={() => handleRegister("baru")}
           >
             Daftar Siswa Baru
           </ShinyButton>
           <ShinyButton
-            className="bg-white font-bold"
+            className="bg-white font-bold dark:bg-black dark:font-bold"
             onClick={() => handleRegister("mutasi")}
           >
             Daftar Siswa Pindahan
           </ShinyButton>
         </div>
 
-        <div className="w-12 h-12 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 left-0 -ml-6"></div>
-        <div className="w-12 h-12 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 right-0 -mr-6"></div>
+        <div className="w-12 h-12 bg-white dark:bg-black rounded-full absolute top-1/2 transform -translate-y-1/2 left-0 -ml-6"></div>
+        <div className="w-12 h-12 bg-white dark:bg-black rounded-full absolute top-1/2 transform -translate-y-1/2 right-0 -mr-6"></div>
       </div>
     </div>
   );
