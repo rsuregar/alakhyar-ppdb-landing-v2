@@ -13,6 +13,7 @@ export default function Page() {
       <TimelineRegister />
       </div>
       <OfficialWebCard />
+      <div className="mt-8 sm:mt-0"></div>
       <CallToAction rounded/>
       </div>
      

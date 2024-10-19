@@ -66,18 +66,21 @@ export const HeroCard: React.FC<HeroCardProps> = ({
             <div className="mt-10 mb-10 sm:mb-0 flex items-center justify-center gap-x-6 lg:justify-start">
               <a href="https://s.alakhyar.sch.id/ppdb" onClick={handleClick}>
                 <PulsatingButton className="font-bold dark:text-white">
-                  Daftarkan Sekarang
+                  Daftar Siswa Baru
                 </PulsatingButton>
+              </a>
+              <a href="https://s.alakhyar.sch.id/pindahan" onClick={handleClick}>
+                  <PulsatingButton pulseColor="#fbbf24" className="font-bold dark:text-white bg-amber-400 dark:bg-amber-500">Daftar Pindahan</PulsatingButton>
               </a>
             </div>
           </div>
           <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block">
             <Image
               alt="App"
-              src={image || '/assets/alakhyar.sch.id.webp'}
+              src={image || '/assets/web-barnding.webp'}
               width={1824}
               height={1080}
-              className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 object-contain"
+              className="absolute left-0 top-0 w-[46rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 object-contain"
             />
           </div>
         </div>

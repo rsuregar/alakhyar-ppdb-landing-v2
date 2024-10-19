@@ -15,7 +15,7 @@ export default function CallToAction({rounded = false}: {rounded?: boolean}) {
             <img
               src="/assets/ba-1.png"
               alt="CTA"
-              className="xl:absolute xl:bottom-0 rounded-t-3xl mx-auto lg:-mb-12 xl:-mb-24 lg:mx-0 object-cover z-40"
+              className="-mb-6 xl:absolute xl:bottom-0 rounded-t-3xl mx-auto lg:-mb-12 xl:-mb-24 lg:mx-0 object-cover z-40"
             />
           </div>
           <div className="w-full lg:w-2/3 mt-6 sm:mt-0">

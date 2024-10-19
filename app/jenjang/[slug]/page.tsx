@@ -5,6 +5,7 @@ import { Accordions, HeroCard } from "../component/HeroCard";
 import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
 import CallToAction from "@/app/components/CallToAction";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const colors = {
   tkit: {
@@ -20,16 +21,16 @@ const colors = {
     to: "#3b82f6",
   },
   smait: {
-    from: "#d97706",
-    to: "#f97316",
+    from: "#d1d5db",
+    to: "#f3f4f6",
   },
 };
 
 const image = {
-  tkit: "/assets/tkit-brosur.png",
-  sdit: "/assets/tkit-brosur.png",
-  smpit: "/assets/tkit-brosur.png",
-  smait: "/assets/tkit-brosur.png",
+  tkit: "/assets/web-branding.webp",
+  sdit: "/assets/web-branding.webp",
+  smpit: "/assets/web-branding.webp",
+  smait: "/assets/web-branding.webp",
 };
 
 const title = {
@@ -122,6 +123,13 @@ const Page = ({ params }: { params: { slug: string } }) => {
     },
   ];
 
+  const handleClick = ({
+    event,
+    value,
+  }: { event: string; value: any }) => {
+    sendGTMEvent({ event: event, value: value });
+  };
+
   return (
     <div className="p-0 sm:p-12">
       <HeroCard
@@ -129,6 +137,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         description={desc[slug as keyof typeof desc]}
         image={image[slug as keyof typeof image]}
         color={colors[slug as keyof typeof colors]}
+        handleClick={() => handleClick({ event: "ppdb", value: `daftar-${slug}` })}
       />
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
       <div className="text-3xl font-bold border-b pb-2">Syarat Pendaftaran <br/> {title[slug as keyof typeof title]}</div>
