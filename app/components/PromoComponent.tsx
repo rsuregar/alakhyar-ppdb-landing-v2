@@ -1,10 +1,7 @@
-import { useFirebase } from "@/hooks/useFirebase";
-import { remoteConfigs } from "@/types/firebase";
 import React from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import locale from "dayjs/locale/id";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import ShinyButton from "@/components/magicui/shiny-button";
 
 dayjs.extend(relativeTime);
@@ -15,7 +12,7 @@ interface Props {
   roundedClass?: string;
 }
 
-const PromoComponent: React.FC<Props> = ({ roundedClass, value }) => {
+const PromoComponent: React.FC<Props> = ({ value }) => {
   const showPromo = value && value.show;
   // Format the dates using Day.js
   const formattedStartDate = dayjs(value?.start_date)
@@ -52,6 +49,7 @@ const PromoComponent: React.FC<Props> = ({ roundedClass, value }) => {
         <img
           src="/assets/promo.webp"
           className="h-24 mx-auto mb-4 rounded-lg"
+          alt="Promo"
         />
         <h3
           className="text-base md:text-2xl font-semibold mb-4 "
