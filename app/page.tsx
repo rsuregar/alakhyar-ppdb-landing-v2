@@ -95,8 +95,8 @@ export default function Home() {
                     target="_blank"
                     onClick={() =>
                       handleClick({
-                        event: "ppdb",
-                        value: { action: "baru" },
+                        event: "click_ppdb_button_new_homepage",
+                        value: 1,
                       })
                     }
                   >
@@ -110,8 +110,8 @@ export default function Home() {
                   target="_blank"
                   onClick={() =>
                     handleClick({
-                      event: "ppdb",
-                      value: { action: "pindahan" },
+                      event: "click_ppdb_button_mutation_homepage",
+                      value: 1,
                     })
                   }
                 >
