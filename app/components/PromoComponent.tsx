@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import locale from "dayjs/locale/id";
 import ShinyButton from "@/components/magicui/shiny-button";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 dayjs.extend(relativeTime);
 dayjs.locale(locale);
@@ -24,6 +25,8 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
   const formattedDateRange = `${formattedStartDate} - ${formattedEndDate}`;
 
   const handleRegister = (type: "baru" | "mutasi") => {
+    const event = type === "baru" ? "click_ppdb_button_new_promo" : "click_ppdb_button_mutation_promo";
+    sendGTMEvent({ event: event, value: 1 });
     const url = {
       baru:
         "https://docs.google.com/forms/d/e/1FAIpQLScBFjzVsAviSEm2VHx2jFctbA-pUAPaCSMxx2Cr2DI5OjWB4g/viewform?usp=pp_url&entry.611144641=" +
