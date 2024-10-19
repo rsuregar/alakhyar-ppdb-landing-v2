@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import React from "react";
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 // import BlurFade from "@/components/magicui/blur-fade";
@@ -44,9 +46,12 @@ export function HowToRegister() {
   );
 }
 
+const isClient = typeof window !== 'undefined';
+
+export const isMobile = isClient ? window.innerWidth < 640 : false;
+
 export function Keunggulan() {
   const { value } = useFirebase(remoteConfigs?.PPDB_KEUNGGULAN) as any
-  const isMobile = window.innerWidth < 640
 
   const ungguls: PPDB_KEUNGGULAN[] = !isMobile ? value.slice(1) : value
 
