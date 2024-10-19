@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/assets/logo-alakhyar.png"],
+    images: ["/assets/web-branding.webp"],
   },
 };
 
