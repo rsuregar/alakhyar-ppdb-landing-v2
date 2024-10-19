@@ -9,11 +9,11 @@ export default function Page() {
     return (
       <>
       <div className="p-0 sm:p-12">
-      <div className="-mb-16 sm:mb-12">
+      <div className="mb-0 sm:mb-10">
       <TimelineRegister />
       </div>
       <OfficialWebCard />
-      <div className="mt-8 sm:mt-0"></div>
+      <div className="mt-10"></div>
       <CallToAction rounded/>
       </div>
      

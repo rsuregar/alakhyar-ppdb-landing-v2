@@ -1,16 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-const OfficialWebCard = () => {
+interface Props {
+  roundedClass?: string;
+}
+
+const OfficialWebCard: React.FC<Props> = ({ roundedClass }) => {
   // const data = JSON.parse(props?.data?.PPDB_KETERANGAN || '{}')
   return (
     <BlurFade key={"official"} delay={0.04 * 0.05} inView>
-      <section className="-mt-6">
-      <div className="bg-transparent">
-        <div className="mx-auto max-w-9xl">
-          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+      <div className="mx-auto max-w-9xl -mb-1.5">
+          <div
+            className={cn(
+              "relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0",
+              roundedClass ?? "sm:rounded-2xl"
+            )}
+          >
             <svg
               viewBox="0 0 1024 1024"
               aria-hidden="true"
@@ -45,7 +53,6 @@ const OfficialWebCard = () => {
                 >
                   Official Website
                 </a>
-                
               </div>
             </div>
             <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block">
@@ -59,10 +66,7 @@ const OfficialWebCard = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
     </BlurFade>
-    
   );
 };
 

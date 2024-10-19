@@ -51,11 +51,11 @@ export function TestimoniMarquee() {
   const firstRow = value?.slice(0, value.length / 2);
   const secondRow = value?.slice(value.length / 2);
 
-  console.log(value);
+  // console.log(value);
   if (!value) return null;
   return (
     <>
-      <div className="w-full px-4  md:mb-0 text-center">
+      <div className="w-full px-4 z-40 bg-transparent pt-8 md:pt-0 md:mb-0 text-center">
         <span className="inline-block py-3 px-6 mb-4 text-lg leading-5 text-sky-500 bg-sky-100 font-bold rounded-full shadow-sm">
           Apa kata mereka?
         </span>
