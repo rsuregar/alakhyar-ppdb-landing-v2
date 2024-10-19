@@ -22,7 +22,7 @@ export function SiteFooter() {
   return (
     <>
       <DockDemo />
-      <footer className="bg-white dark:bg-gray-900 -mt-8 sm:mt-0">
+      <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">

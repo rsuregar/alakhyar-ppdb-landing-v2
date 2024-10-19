@@ -2,7 +2,7 @@
 "use client";
 
 import { TestimoniMarquee } from "./components/TestimoniMarquee";
-import { HowToRegister, HowToRegisterV2 } from "./components/HowToRegister";
+import { HowToRegister, Keunggulan } from "./components/HowToRegister";
 import OfficialWebCard from "./components/OfficialWebsiteCard";
 import CallToAction from "./components/CallToAction";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -14,6 +14,7 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import PulsatingButton from "@/components/magicui/pulsating-button";
+import PromoComponent from "./components/PromoComponent";
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -25,6 +26,8 @@ export default function Home() {
   ) as any;
 
   const { value: isOpen } = useFirebase(remoteConfigs.PPDB_OPEN) as any;
+
+  const { value: promo } = useFirebase(remoteConfigs?.PPDB_SPECIAL_PROMO) as any;
 
   const comingSoonData = comingSoon as ComingSoon;
 
@@ -55,7 +58,7 @@ export default function Home() {
                 </radialGradient>
               </defs>
             </svg>
-            <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
               <div className="z-10 flex justify-center sm:justify-start">
                 {comingSoonData?.show && (
                   <div className="text-left flex items-center border rounded-xl py-1 px-2 mb-6 lg:mb-2 sm:font-bold">
@@ -89,6 +92,7 @@ export default function Home() {
                 {isOpen ? (
                   <a
                     href="https://s.alakhyar.sch.id/ppdb"
+                    target="_blank"
                     onClick={() =>
                       handleClick({
                         event: "ppdb",
@@ -103,6 +107,7 @@ export default function Home() {
                 ) : null}
                 <a
                   href="https://s.alakhyar.sch.id/pindahan"
+                  target="_blank"
                   onClick={() =>
                     handleClick({
                       event: "ppdb",
@@ -114,35 +119,43 @@ export default function Home() {
                     pulseColor="#fbbf24"
                     className="font-bold dark:text-white bg-amber-400 dark:bg-amber-500"
                   >
-                    Daftar Pindahan
+                    Daftar Siswa Pindahan
                   </PulsatingButton>
                 </a>
               </div>
             </div>
-            <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block">
+            
+            <div className="relative h-80 mt-16 -mb-20 md:mb-0 lg:mt-8 justify-center">
               <Image
                 alt="App screenshot"
                 src="/assets/web-branding.webp"
                 width={1824}
-                height={720}
-                className="absolute object-cover left-0 top-0 w-[52rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+              height={1080}
+                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none"
               />
             </div>
           </div>
         </div>
+        
       </BlurFade>
 
-      <section className="sm:container grid items-center gap-6 pb-8 pt-28 md:py-10">
+      <BlurFade key={"promo"} delay={0.1} inView>
+        <div className="-mb-20 sm:mt-0 sm:mb-0">
+          <PromoComponent value={promo} />
+        </div>
+      </BlurFade>
+
+      <section className="sm:container grid items-center gap-6 pb-6 pt-20 md:py-10">
         {/* <HeroSection /> */}
         <TestimoniMarquee />
-        <BlurFade key={"register"} delay={0.04 * 0.05} inView>
+        <BlurFade key={"register"} delay={0.1} inView>
           <HowToRegister />
-          <HowToRegisterV2 />
-        </BlurFade>
-        <BlurFade key={"official"} delay={0.04 * 0.05} inView>
-          <OfficialWebCard />
+          <Keunggulan />
         </BlurFade>
       </section>
+      <BlurFade key={"official"} delay={0.1} inView>
+          <OfficialWebCard roundedClass={'rounded-none'} />
+        </BlurFade>
       <BlurFade key={"cta"} delay={0.08 * 0.05} inView>
         <CallToAction />
       </BlurFade>

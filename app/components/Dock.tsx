@@ -133,7 +133,7 @@ export function DockDemo() {
   return (
     <div className="fixed bottom-3 sm:bottom-10 left-0 w-full">
       <TooltipProvider>
-        <Dock direction="middle" className="dark:bg-white dark:text-slate-950">
+        <Dock direction="middle" className="dark:bg-white bg-white dark:text-slate-950">
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>

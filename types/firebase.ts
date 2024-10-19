@@ -1,3 +1,9 @@
+export interface PPDB_KEUNGGULAN {
+  number: number;
+  title: string;
+  description: string;
+}
+
 export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_OPEN: false,
   PPDB_TAHUN_AJARAN: "2024-2025",
@@ -16,6 +22,8 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_ADDITIONAL_PROMO: "No additional promo",
   PPDB_TOGGLE_BANNER: false,
   PPDB_TESTIMONI: null,
+  PPDB_KEUNGGULAN: [] as PPDB_KEUNGGULAN[],
+  PPDB_SPECIAL_PROMO: null,
 };
 
 // Define the object
@@ -37,5 +45,7 @@ export const remoteConfigs = {
     PPDB_ADDITIONAL_PROMO: "PPDB_ADDITIONAL_PROMO",
     PPDB_TOGGLE_BANNER: "PPDB_TOGGLE_BANNER",
     PPDB_TESTIMONI: "PPDB_TESTIMONI",
+    PPDB_KEUNGGULAN: "PPDB_KEUNGGULAN",
+    PPDB_SPECIAL_PROMO: "PPDB_SPECIAL_PROMO",
   };
 
