@@ -75,7 +75,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   const gelombang2 = `Gelombang II dibuka dari tanggal ${jadwal?.batch2} jika kuota belum terpenuhi (${jadwal?.kuota?.[slug]}) siswa`;
 
-  console.log(banks);
 
   const accordionData = [
     {
@@ -137,14 +136,15 @@ const Page = ({ params }: { params: { slug: string } }) => {
         description={desc[slug as keyof typeof desc]}
         image={image[slug as keyof typeof image]}
         color={colors[slug as keyof typeof colors]}
-        handleClick={() => handleClick({ event: "ppdb", value: `daftar-${slug}` })}
+        handleClick={() => handleClick({ event: `register-${slug}`, value: 1 })}
       />
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
       <div className="text-3xl font-bold border-b pb-2">Syarat Pendaftaran <br/> {title[slug as keyof typeof title]}</div>
       <Accordions data={accordionData} />
       </div>
-      <div className="my-20"></div>
+      <div className="my-16"></div>
       <OfficialWebCard />
+      <div className="-mt-5 sm:mt-10"></div>
       <CallToAction rounded />
     </div>
   );

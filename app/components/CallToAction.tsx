@@ -10,7 +10,7 @@ export default function CallToAction({
 }) {
   const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
   return (
-    <div className="mx-auto">
+    <div className="mx-auto z-50">
       <div
         className={cn(
           "xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row",
