@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
 import PulsatingButton from '@/components/magicui/pulsating-button'
 import PromoComponent from './components/PromoComponent'
-import { ImageMarquee } from './components/ImageMarquee'
+// import { ImageMarquee } from './components/ImageMarquee'
 import { event as eventGA } from '@/lib/gtag'
 
 export default function Home() {
