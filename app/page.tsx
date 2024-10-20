@@ -83,6 +83,14 @@ export default function Home() {
               </defs>
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
+              <Image
+                src="/assets/logo.webp"
+                width={100}
+                height={100}
+                priority
+                alt="logo"
+                className="rounded-2xl mb-4 mx-auto sm:mx-0"
+              />
               <div className="z-10 flex justify-center sm:justify-start">
                 {comingSoonData?.show && (
                   <div className="text-left flex items-center border rounded-xl py-1 px-2 mb-6 lg:mb-2 sm:font-bold">
