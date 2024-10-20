@@ -232,8 +232,9 @@ export function DockDemo({ whatsAppText }: { whatsAppText: string }) {
           <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link
+                <a
                   href={whatsAppText}
+                  data-action="share/whatsapp/share"
                   target="_blank"
                   aria-label={DATA.contact.whatsApp.name}
                   className={cn(
@@ -242,7 +243,7 @@ export function DockDemo({ whatsAppText }: { whatsAppText: string }) {
                   )}
                 >
                   <DATA.contact.whatsApp.icon className="size-8" />
-                </Link>
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Offical WhatsApp</p>
