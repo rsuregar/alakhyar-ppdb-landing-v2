@@ -110,7 +110,7 @@ export function TestimoniVertical() {
         </h2>
       </div>
       <div className="relative mt-6 h-[400px] overflow-hidden">
-        <div className="gap-2 md:columns-2 xl:columns-3 2xl:columns-4 border">
+        <div className="gap-2 md:columns-2 xl:columns-3 2xl:columns-4">
           <Marquee
             pauseOnHover
             vertical
