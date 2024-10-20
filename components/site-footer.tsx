@@ -31,6 +31,8 @@ export function SiteFooter() {
     ? `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
 
+  console.log('whatsAppText', whatsAppText)
+
   return (
     <>
       <DockDemo whatsAppText={whatsAppText} />

@@ -50,6 +50,7 @@ export default function CallToAction({
           <div className="flex items-center sm:flex-col sm:gap-7 md:flex-row lg:justify-start justify-center">
             <a
               href={whatsAppText}
+              target="_blank"
               rel="noopener noreferrer"
               className="sm:w-auto text-[#075E54] bg-white hover:bg-green-50 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg inline-flex items-center justify-center px-6 py-3 mr-1"
             >
