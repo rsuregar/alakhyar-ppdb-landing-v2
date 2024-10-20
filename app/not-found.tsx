@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 // import { usePathname } from "next/navigation";
 
 export default function NotFound() {
-//   const pathname = usePathname();
+  //   const pathname = usePathname();
 
   return (
     <div className="flex flex-col justify-center items-center h-screen text-center">
@@ -18,10 +18,10 @@ export default function NotFound() {
       </h2>
       <p className="mt-0.5">Could not find requested resource</p>
       <Link href="/" className="mt-4 hover:underline">
-        <Button variant={"ghost"} size={"sm"}>
+        <Button variant={'ghost'} size={'sm'}>
           Back to Home
         </Button>
       </Link>
     </div>
-  );
+  )
 }

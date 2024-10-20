@@ -3,11 +3,11 @@ import {
   Moon,
   SunMedium,
   type Icon as LucideIcon,
-} from "lucide-react";
-import Image from "next/image";
+} from 'lucide-react'
+import Image from 'next/image'
 
 // Correct the type usage
-export type Icon = typeof LucideIcon;
+export type Icon = typeof LucideIcon
 
 export const Icons = {
   sun: SunMedium,
@@ -62,4 +62,4 @@ export const Icons = {
       {...props}
     />
   ),
-};
+}

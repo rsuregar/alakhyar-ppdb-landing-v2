@@ -1,42 +1,47 @@
-'use client';
+'use client'
 
-import * as React from "react";
-import Link from "next/link";
+import * as React from 'react'
+import Link from 'next/link'
 // import { usePathname } from "next/navigation"; // Import usePathname for checking active route
 
-import { NavItem } from "@/types/nav";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
-import { useFirebase } from "@/hooks/useFirebase";
-import { NavLink } from "@/app/components/NavLink";
+import { NavItem } from '@/types/nav'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import { Icons } from '@/components/icons'
+import { useFirebase } from '@/hooks/useFirebase'
+import { NavLink } from '@/app/components/NavLink'
 // import { Fragment } from "react";
 
 interface MainNavProps {
-  items?: NavItem[];
+  items?: NavItem[]
 }
 
 export function MainNav({ items }: MainNavProps) {
   // const pathname = usePathname(); // Get current path
-  const { value: tahunAjaran } = useFirebase("PPDB_TAHUN_AJARAN") as any;
+  const { value: tahunAjaran } = useFirebase('PPDB_TAHUN_AJARAN') as any
 
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false)
 
   React.useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+      setIsMobile(window.innerWidth < 768)
+    }
 
-    handleResize(); // Check initial size
-    window.addEventListener("resize", handleResize);
-    
-    return () => window.removeEventListener("resize", handleResize); // Cleanup
-  }, []);
+    handleResize() // Check initial size
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize) // Cleanup
+  }, [])
   return (
     <div className="flex gap-6 md:gap-10 justify-evenly items-center">
-      <Link href="/" className={cn("flex items-center space-x-2")}>
+      <Link href="/" className={cn('flex items-center space-x-2')}>
         <Icons.logoV2 width="40" height="40" />
-        <span className="inline-block">{siteConfig.title} <br/><div className="text-xs -mt-1">Penerimaan Peserta Didik Baru {tahunAjaran}</div></span>
+        <span className="inline-block">
+          {siteConfig.title} <br />
+          <div className="text-xs -mt-1">
+            Penerimaan Peserta Didik Baru {tahunAjaran}
+          </div>
+        </span>
       </Link>
       {items?.length && !isMobile ? (
         <nav className="sm:flex gap-6 hidden">
@@ -59,9 +64,9 @@ export function MainNav({ items }: MainNavProps) {
               </Fragment> // Added a key to this fallback
             )
           )} */}
-          <NavLink/>
+          <NavLink />
         </nav>
       ) : null}
     </div>
-  );
+  )
 }

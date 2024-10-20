@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-"use client";
+'use client'
 
-import React from "react";
-import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import React from 'react'
+import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 // import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
-import DotPattern from "@/components/magicui/dot-pattern";
-import { cn } from "@/lib/utils";
-import { PPDB_KEUNGGULAN, remoteConfigs } from "@/types/firebase";
-import { useFirebase } from "@/hooks/useFirebase";
+import BlurFadeText from '@/components/magicui/blur-fade-text'
+import DotPattern from '@/components/magicui/dot-pattern'
+import { cn } from '@/lib/utils'
+import { PPDB_KEUNGGULAN, remoteConfigs } from '@/types/firebase'
+import { useFirebase } from '@/hooks/useFirebase'
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.04
 
 export function HowToRegister() {
   return (
@@ -27,7 +27,7 @@ export function HowToRegister() {
                   Bagaimana Cara Mendaftar
                 </p>
                 <div className="text-xl font-extrabold sm:text-5xl sm:font-bold mb-9 dark:text-stone-300">
-                  Al Akhyar Islamic School{" "}
+                  Al Akhyar Islamic School{' '}
                 </div>
               </>
             }
@@ -43,12 +43,12 @@ export function HowToRegister() {
         />
       </div>
     </div>
-  );
+  )
 }
 
-const isClient = typeof window !== 'undefined';
+const isClient = typeof window !== 'undefined'
 
-export const isMobile = isClient ? window.innerWidth < 640 : false;
+export const isMobile = isClient ? window.innerWidth < 640 : false
 
 export function Keunggulan() {
   const { value } = useFirebase(remoteConfigs?.PPDB_KEUNGGULAN) as any
@@ -59,7 +59,7 @@ export function Keunggulan() {
     <section className=" bg-white dark:bg-gray-950 relative mt-20 md:mt-32 py-4">
       <DotPattern
         className={cn(
-          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+          '[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]'
         )}
       />
       <div className="container px-4 mx-auto">
@@ -76,7 +76,9 @@ export function Keunggulan() {
                 {value[0]?.number}
               </div>
               <h3 className="mb-2 text-2xl font-bold">{value[0]?.title}</h3>
-              <p className="text-lg font-medium text-justify">{value[0]?.description}</p>
+              <p className="text-lg font-medium text-justify">
+                {value[0]?.description}
+              </p>
             </div>
           </div>
           <div className="w-full md:w-1/2 px-4">
@@ -107,16 +109,21 @@ export function Keunggulan() {
 
         <div className="flex px-3 md:px-0 flex-wrap -mx-4 text-left">
           {ungguls.map((item: PPDB_KEUNGGULAN) => (
-            <div key={item.number} className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8 text-center md:text-left">
+            <div
+              key={item.number}
+              className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8 text-center md:text-left"
+            >
               <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-sky-500 font-semibold rounded-full">
                 {item.number}
               </div>
               <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-              <p className="font-medium text-coolGray-500">{item.description}</p>
+              <p className="font-medium text-coolGray-500">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

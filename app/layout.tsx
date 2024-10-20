@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 // import localFont from "next/font/local";
-import "./globals.css";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
-import { GA_MEASUREMENT_ID } from "@/lib/gtag";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { fontSans } from "@/lib/fonts";
-import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
+import './globals.css'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
+import { GA_MEASUREMENT_ID } from '@/lib/gtag'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import { fontSans } from '@/lib/fonts'
+import { ThemeProvider } from '@/components/theme-provider'
+import { SiteHeader } from '@/components/site-header'
+import { TailwindIndicator } from '@/components/tailwind-indicator'
 
-import type { Viewport } from "next";
-import { SiteFooter } from "@/components/site-footer";
+import type { Viewport } from 'next'
+import { SiteFooter } from '@/components/site-footer'
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#045591" },
-    { media: "(prefers-color-scheme: light)", color: "#045591" },
+    { media: '(prefers-color-scheme: dark)', color: '#045591' },
+    { media: '(prefers-color-scheme: light)', color: '#045591' },
   ],
-};
+}
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -37,31 +37,30 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.title}`,
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/assets/favicon-16x16.png",
-    apple: "/assets/apple-touch-icon.png",
+    icon: '/icon.png',
+    shortcut: '/assets/favicon-16x16.png',
+    apple: '/assets/apple-touch-icon.png',
   },
   description: siteConfig.description,
   // appleWebApp: true,
   appLinks: {
     web: {
-      url: "https://ppdb.alakhyar.sch.id",
+      url: 'https://ppdb.alakhyar.sch.id',
       should_fallback: false,
     },
   },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/assets/web-branding.webp"],
+    images: ['/assets/web-branding.webp'],
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
@@ -71,13 +70,12 @@ export default function RootLayout({
       > */}
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          'min-h-screen bg-background font-sans antialiased',
           fontSans.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <>
-          
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />
@@ -86,5 +84,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

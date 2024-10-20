@@ -1,19 +1,19 @@
-"use client";
+'use client'
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Skeleton } from "@/components/ui/skeleton";
-import { useFirebase } from "@/hooks/useFirebase";
-import { remoteConfigs } from "@/types/firebase";
-import { Jadwal } from "@/types/ppdb";
-import React from "react";
+import { Skeleton } from '@/components/ui/skeleton'
+import { useFirebase } from '@/hooks/useFirebase'
+import { remoteConfigs } from '@/types/firebase'
+import { Jadwal } from '@/types/ppdb'
+import React from 'react'
 
 const TimelineRegister = () => {
-  const { value, loading } = useFirebase(remoteConfigs.PPDB_JADWAL) as any;
-  const { value: gelombang } = useFirebase(remoteConfigs.PPDB_GELOMBANG) as any;
+  const { value, loading } = useFirebase(remoteConfigs.PPDB_JADWAL) as any
+  const { value: gelombang } = useFirebase(remoteConfigs.PPDB_GELOMBANG) as any
   const { value: tahunAjaran } = useFirebase(
     remoteConfigs.PPDB_TAHUN_AJARAN
-  ) as any;
+  ) as any
 
-  const jadwal = value as Jadwal;
+  const jadwal = value as Jadwal
   if (!jadwal || loading)
     return (
       <div className="flex items-center space-x-4">
@@ -23,7 +23,7 @@ const TimelineRegister = () => {
           <Skeleton className="h-4 w-[200px]" />
         </div>
       </div>
-    );
+    )
   return (
     <div className="bg-white dark:bg-gray-800 border-0 sm:border sm:border-gray-200 dark:border-gray-700 overflow-hidden sm:rounded-xl">
       <div className="px-4 py-5 sm:px-6">
@@ -58,7 +58,7 @@ const TimelineRegister = () => {
                 .map(([key, value]) => (
                   <div key={key}>
                     <p>
-                      {key.toUpperCase().replace("IT", "")} : {value}
+                      {key.toUpperCase().replace('IT', '')} : {value}
                     </p>
                   </div>
                 ))}
@@ -96,7 +96,7 @@ const TimelineRegister = () => {
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace("IT", "")} : {value}
+                        {key.toUpperCase().replace('IT', '')} : {value}
                       </p>
                     </div>
                   ))}
@@ -117,7 +117,7 @@ const TimelineRegister = () => {
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace("IT", "")} : {value}
+                        {key.toUpperCase().replace('IT', '')} : {value}
                       </p>
                     </div>
                   ))}
@@ -135,7 +135,7 @@ const TimelineRegister = () => {
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace("IT", "")} : {value}
+                        {key.toUpperCase().replace('IT', '')} : {value}
                       </p>
                     </div>
                   ))}
@@ -144,7 +144,7 @@ const TimelineRegister = () => {
 
           <div className="bg-black px-4 py-5">
             <dt className="text-sm font-medium text-white text-center">
-              Gelombang II dibuka dari tanggal{" "}
+              Gelombang II dibuka dari tanggal{' '}
               <span className="text-lg font-bold">{jadwal?.batch2}</span> jika
               kuota belum terpenuhi
             </dt>
@@ -152,7 +152,7 @@ const TimelineRegister = () => {
         </dl>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TimelineRegister;
+export default TimelineRegister

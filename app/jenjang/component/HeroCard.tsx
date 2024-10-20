@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import React from "react";
-import BlurFade from "@/components/magicui/blur-fade";
-import Image from "next/image";
-import PulsatingButton from "@/components/magicui/pulsating-button";
+import React from 'react'
+import BlurFade from '@/components/magicui/blur-fade'
+import Image from 'next/image'
+import PulsatingButton from '@/components/magicui/pulsating-button'
 
 interface HeroCardProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  image?: string;
-  href?: string;
-  tahunAjaran?: string;
-  isOpen?: boolean;
-  handleClick?: () => void;
-  children?: React.ReactNode;
+  title?: string
+  subtitle?: string
+  description?: string
+  image?: string
+  href?: string
+  tahunAjaran?: string
+  isOpen?: boolean
+  handleClick?: () => void
+  children?: React.ReactNode
   color?: {
-    from: string;
-    via?: string;
-    to: string;
-  };
+    from: string
+    via?: string
+    to: string
+  }
 }
 
 export const HeroCard: React.FC<HeroCardProps> = ({
@@ -28,7 +28,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   subtitle,
   handleClick,
   color,
-  image
+  image,
 }) => {
   return (
     <BlurFade key="hero" delay={0.4 * 0.05} inView>
@@ -69,8 +69,16 @@ export const HeroCard: React.FC<HeroCardProps> = ({
                   Daftar Siswa Baru
                 </PulsatingButton>
               </a>
-              <a href="https://s.alakhyar.sch.id/pindahan" onClick={handleClick}>
-                  <PulsatingButton pulseColor="#fbbf24" className="font-bold dark:text-white bg-amber-400 dark:bg-amber-500">Daftar Pindahan</PulsatingButton>
+              <a
+                href="https://s.alakhyar.sch.id/pindahan"
+                onClick={handleClick}
+              >
+                <PulsatingButton
+                  pulseColor="#fbbf24"
+                  className="font-bold dark:text-white bg-amber-400 dark:bg-amber-500"
+                >
+                  Daftar Pindahan
+                </PulsatingButton>
               </a>
             </div>
           </div>
@@ -86,37 +94,38 @@ export const HeroCard: React.FC<HeroCardProps> = ({
         </div>
       </div>
     </BlurFade>
-  );
-};
+  )
+}
 
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 
-  interface AccordionItemData {
-    title: string;
-    content: string | React.ReactNode;
-  }
-  
-  interface AccordionProps {
-    data: AccordionItemData[];
-  }
-  
-  
-  export const Accordions: React.FC<AccordionProps> = ({ data }) => {
-    return (
-      <Accordion type="single" collapsible className="w-full">
-        {data.map((item, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-lg sm:text-xl font-bold hover:no-underline sm:hover:text-2xl">{item.title}</AccordionTrigger>
-            <AccordionContent className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg mb-4">{item.content}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    );
-  };
-  
-  
+interface AccordionItemData {
+  title: string
+  content: string | React.ReactNode
+}
+
+interface AccordionProps {
+  data: AccordionItemData[]
+}
+
+export const Accordions: React.FC<AccordionProps> = ({ data }) => {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      {data.map((item, index) => (
+        <AccordionItem key={index} value={`item-${index}`}>
+          <AccordionTrigger className="text-lg sm:text-xl font-bold hover:no-underline sm:hover:text-2xl">
+            {item.title}
+          </AccordionTrigger>
+          <AccordionContent className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg mb-4">
+            {item.content}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  )
+}

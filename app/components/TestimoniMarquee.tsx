@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
-"use client";
+'use client'
 
-import { cn } from "@/lib/utils";
-import Marquee from "@/components/magicui/marquee";
-import { useFirebase } from "@/hooks/useFirebase";
+import { cn } from '@/lib/utils'
+import Marquee from '@/components/magicui/marquee'
+import { useFirebase } from '@/hooks/useFirebase'
 
 const avatarApi = (name: string) => {
-  return encodeURI(`https://ui-avatars.com/api/?name=${name}}&color=7F9CF5&background=EBF4FF&size=32&font-size=0.33&rounded=true`);
+  return encodeURI(
+    `https://ui-avatars.com/api/?name=${name}}&color=7F9CF5&background=EBF4FF&size=32&font-size=0.33&rounded=true`
+  )
 }
 
 const ReviewCard = ({
@@ -15,23 +17,22 @@ const ReviewCard = ({
   name,
   title,
   description,
-  job = '-'
+  job = '-',
 }: {
-  avatar: string;
-  name: string;
-  title: string;
-  description: string;
-  job: string;
+  avatar: string
+  name: string
+  title: string
+  description: string
+  job: string
 }) => {
-
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        'relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
         // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        'dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]'
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -40,21 +41,23 @@ const ReviewCard = ({
           <figcaption className="text-sm font-bold dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{title} | {job}</p>
+          <p className="text-xs font-medium dark:text-white/40">
+            {title} | {job}
+          </p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{description}</blockquote>
     </figure>
-  );
-};
+  )
+}
 
 export function TestimoniMarquee() {
-  const { value } = useFirebase("PPDB_TESTIMONI") as any;
-  const firstRow = value?.slice(0, value.length / 2);
-  const secondRow = value?.slice(value.length / 2);
+  const { value } = useFirebase('PPDB_TESTIMONI') as any
+  const firstRow = value?.slice(0, value.length / 2)
+  const secondRow = value?.slice(value.length / 2)
 
   // console.log(value);
-  if (!value) return null;
+  if (!value) return null
   return (
     <>
       <div className="w-full px-4 z-40 bg-transparent pt-8 md:pt-0 md:mb-0 text-center">
@@ -65,7 +68,6 @@ export function TestimoniMarquee() {
           Testimoni dari Orang Tua, Siswa, dan Alumni
         </h2>
       </div>
-
 
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
@@ -82,5 +84,5 @@ export function TestimoniMarquee() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
       </div>
     </>
-  );
+  )
 }

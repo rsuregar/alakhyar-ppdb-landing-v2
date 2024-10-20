@@ -1,21 +1,21 @@
-import React from "react";
-import Link from "next/link";
-import { CalendarIcon, HomeIcon, MailIcon } from "lucide-react";
+import React from 'react'
+import Link from 'next/link'
+import { CalendarIcon, HomeIcon, MailIcon } from 'lucide-react'
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Dock, DockIcon } from "@/components/magicui/dock";
+} from '@/components/ui/tooltip'
+import { Dock, DockIcon } from '@/components/magicui/dock'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
+export type IconProps = React.HTMLAttributes<SVGElement>
 
 const Icons = {
   calendar: (props: IconProps) => <CalendarIcon {...props} />,
@@ -59,7 +59,7 @@ const Icons = {
       ></path>
     </svg>
   ),
-  smp: (props:any) => (
+  smp: (props: any) => (
     <Image
       src="/assets/smp.png"
       alt="SMP"
@@ -68,16 +68,10 @@ const Icons = {
       {...props}
     />
   ),
-  sd: (props:any) => (
-    <Image
-      src="/assets/sd.png"
-      alt="SD"
-      width={100}
-      height={100}
-      {...props}
-    />
+  sd: (props: any) => (
+    <Image src="/assets/sd.png" alt="SD" width={100} height={100} {...props} />
   ),
-  sma: (props:any) => (
+  sma: (props: any) => (
     <Image
       src="/assets/sma.png"
       alt="SMA"
@@ -86,14 +80,8 @@ const Icons = {
       {...props}
     />
   ),
-  tk: (props:any) => (
-    <Image
-      src="/assets/tk.png"
-      alt="TK"
-      width={100}
-      height={100}
-      {...props}
-    />
+  tk: (props: any) => (
+    <Image src="/assets/tk.png" alt="TK" width={100} height={100} {...props} />
   ),
   whatsapp: (props: IconProps) => (
     <svg
@@ -147,51 +135,59 @@ const Icons = {
         d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"
       />
     </svg>
-  )
-};
+  ),
+}
 
 const DATA = {
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/jadwal", icon: Icons.calendar, label: "Jadwal" },
+    { href: '/', icon: HomeIcon, label: 'Home' },
+    { href: '/jadwal', icon: Icons.calendar, label: 'Jadwal' },
   ],
   contact: {
     social: {
-      'Taman Kanak-Kanak': {
-        name: "TK",
-        url: "/jenjang/tkit",
+      'TK Islam': {
+        name: 'TK',
+        url: '/jenjang/tkit',
         icon: Icons.tk,
       },
       'SD Islam': {
-        name: "SD",
-        url: "/jenjang/sdit",
+        name: 'SD',
+        url: '/jenjang/sdit',
         icon: Icons.sd,
       },
       'SMP Islam': {
-        name: "SMP",
-        url: "/jenjang/smpit",
+        name: 'SMP',
+        url: '/jenjang/smpit',
         icon: Icons.smp,
       },
       'SMA Islam': {
-        name: "SMA",
-        url: "/jenjang/smait",
+        name: 'SMA',
+        url: '/jenjang/smait',
         icon: Icons.sma,
       },
     },
     whatsApp: {
-      name: "WhatsApp",
-      url: "https://wa.me/6281212222222",
+      name: 'WhatsApp',
+      url: 'https://wa.me/6281212222222',
       icon: Icons.whatsapp,
-    }
+    },
   },
+}
 
-};
-
-export function DockDemo({whatsAppText}: {whatsAppText: string}) {
+export function DockDemo({
+  whatsAppText,
+  isMobile,
+}: {
+  whatsAppText: string
+  isMobile?: boolean
+}) {
   return (
-    <div className="fixed bottom-3 sm:bottom-10 left-0 w-full">
+    <div className="fixed bottom-3 sm:bottom-10 left-0 w-full z-50">
       <TooltipProvider>
-        <Dock direction="middle" className="dark:bg-white bg-white dark:text-slate-950">
+        <Dock
+          direction="middle"
+          className="dark:bg-white bg-white dark:text-slate-950"
+        >
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
@@ -200,8 +196,8 @@ export function DockDemo({whatsAppText}: {whatsAppText: string}) {
                     href={item.href}
                     aria-label={item.label}
                     className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-xl",
+                      buttonVariants({ variant: 'ghost', size: 'icon' }),
+                      'size-12 rounded-xl'
                     )}
                   >
                     <item.icon className="size-5" />
@@ -219,17 +215,17 @@ export function DockDemo({whatsAppText}: {whatsAppText: string}) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div className="flex flex-col items-center justify-center">
-                  <Link
-                    href={social.url}
-                    aria-label={social.name}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-xl",
-                    )}
-                  >
-                    {/* <social.icon className="size-5" /> */}
-                    {social.name}
-                  </Link>
+                    <Link
+                      href={social.url}
+                      aria-label={social.name}
+                      className={cn(
+                        buttonVariants({ variant: 'ghost', size: 'icon' }),
+                        'size-12 rounded-xl'
+                      )}
+                    >
+                      {/* <social.icon className="size-5" /> */}
+                      {social.name}
+                    </Link>
                   </div>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -242,16 +238,17 @@ export function DockDemo({whatsAppText}: {whatsAppText: string}) {
           <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-               <Link
-                    href={whatsAppText}
-                    aria-label={DATA.contact.whatsApp.name}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-xl",
-                    )}
-                  >
-                    <DATA.contact.whatsApp.icon className="size-8" />
-                  </Link>
+                <Link
+                  href={whatsAppText}
+                  target="_blank"
+                  aria-label={DATA.contact.whatsApp.name}
+                  className={cn(
+                    buttonVariants({ variant: 'ghost', size: 'icon' }),
+                    'size-12 rounded-xl'
+                  )}
+                >
+                  <DATA.contact.whatsApp.icon className="size-8" />
+                </Link>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Offical WhatsApp</p>
@@ -261,5 +258,5 @@ export function DockDemo({whatsAppText}: {whatsAppText: string}) {
         </Dock>
       </TooltipProvider>
     </div>
-  );
+  )
 }

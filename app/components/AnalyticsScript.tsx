@@ -1,19 +1,19 @@
 // app/components/AnalyticsScript.tsx
-'use client';
+'use client'
 
-import Script from 'next/script';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
+import Script from 'next/script'
+import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag'
 
 export default function AnalyticsScript() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   useEffect(() => {
     if (GA_MEASUREMENT_ID) {
-      pageview(pathname);
+      pageview(pathname)
     }
-  }, [pathname]);
+  }, [pathname])
 
   return (
     <>
@@ -36,5 +36,5 @@ export default function AnalyticsScript() {
         </>
       )}
     </>
-  );
+  )
 }

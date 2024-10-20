@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import CallToAction from "../components/CallToAction";
-import OfficialWebCard from "../components/OfficialWebsiteCard";
-import TimelineRegister from "../components/Timeline";
+import CallToAction from '../components/CallToAction'
+import OfficialWebCard from '../components/OfficialWebsiteCard'
+import TimelineRegister from '../components/Timeline'
 
 export default function Page() {
   return (
@@ -18,5 +18,5 @@ export default function Page() {
 
       {/* <CallToAction /> */}
     </>
-  );
+  )
 }
