@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -65,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > */}

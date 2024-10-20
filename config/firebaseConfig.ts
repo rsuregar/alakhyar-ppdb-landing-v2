@@ -2,6 +2,7 @@
 
 import { initializeApp } from 'firebase/app';
 import { getRemoteConfig, RemoteConfig } from 'firebase/remote-config';
+// import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY as string,
@@ -14,6 +15,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 // Initialize Remote Config
 // Initialize Remote Config
 let remoteConfig: RemoteConfig | null = null;

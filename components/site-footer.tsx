@@ -4,8 +4,11 @@
 
 import { useEffect, useState } from "react";
 import { DockDemo } from "@/app/components/Dock";
+import { remoteConfigs } from "@/types/firebase";
+import { useFirebase } from "@/hooks/useFirebase";
 
 export function SiteFooter() {
+  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ export function SiteFooter() {
 
   return (
     <>
-      <DockDemo />
+      <DockDemo whatsAppText={`https://wa.me/${value?.whatsApp?.official}`} />
       <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
