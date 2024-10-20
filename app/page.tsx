@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { TestimoniMarquee } from './components/TestimoniMarquee'
+import {
+  TestimoniMarquee,
+  TestimoniVertical,
+} from './components/TestimoniMarquee'
 import { HowToRegister, Keunggulan } from './components/HowToRegister'
 import OfficialWebCard from './components/OfficialWebsiteCard'
 import CallToAction from './components/CallToAction'
@@ -16,6 +19,7 @@ import { ChevronRight } from 'lucide-react'
 import PulsatingButton from '@/components/magicui/pulsating-button'
 import PromoComponent from './components/PromoComponent'
 import { ImageMarquee } from './components/ImageMarquee'
+import { event as eventGA } from '@/lib/gtag'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -33,8 +37,18 @@ export default function Home() {
   const comingSoonData = comingSoon as ComingSoon
 
   const handleClick = ({ event, value }: { event: string; value: any }) => {
-    console.log('click', event, value)
+    // console.log('click', event, value)
     sendGTMEvent({ event: event, value: value })
+    eventGA({
+      action: 'click', // This is the action you want to track
+      category: 'Button', // Category for the event
+      label: 'PPDB Button Register', // Label for the event
+      value: '1', // Optional value; can be a number or string
+    })
+    // Alternatively, you can use the custom event_name parameter if required
+    window.gtag('event', event, {
+      event_name: value,
+    })
   }
   return (
     <>
@@ -149,7 +163,8 @@ export default function Home() {
 
       <section className="sm:container grid items-center gap-6 pb-6 pt-20 md:py-10">
         {/* <HeroSection /> */}
-        <TestimoniMarquee />
+        {/* <TestimoniMarquee /> */}
+        <TestimoniVertical />
         <BlurFade key={'register'} delay={0.1} inView>
           <HowToRegister />
           <Keunggulan />

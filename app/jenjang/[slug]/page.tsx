@@ -136,11 +136,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
         <div className="text-3xl md:text-4xl font-bold pb-3 text-left md:text-center md:max-w-screen-sm mx-auto">
           Syarat Pendaftaran <br />
-          <span className="text-3xl md:text-3xl text-sky-700">
+          <span className="text-3xl md:text-3xl text-sky-700 dark:text-white">
             {title[slug as keyof typeof title]}
           </span>
         </div>
-        <Separator />
+        {/* <Separator /> */}
         <Accordions data={accordionData} />
       </div>
       <div className="my-16"></div>

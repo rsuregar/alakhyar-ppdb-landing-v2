@@ -42,7 +42,7 @@ const ReviewCard = ({ img, body }: { img: string; body: string }) => {
 
   return (
     <figure
-      className="relative w-48 cursor-pointer overflow-hidden rounded-xl"
+      className="relative w-36 md:w-48 cursor-pointer overflow-hidden rounded-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

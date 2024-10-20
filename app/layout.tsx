@@ -12,6 +12,7 @@ import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 import type { Viewport } from 'next'
 import { SiteFooter } from '@/components/site-footer'
+import AnalyticsScript from './components/AnalyticsScript'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -82,6 +83,7 @@ export default function RootLayout({
           </>
           <TailwindIndicator />
         </ThemeProvider>
+        <AnalyticsScript />
       </body>
     </html>
   )

@@ -7,6 +7,7 @@ import locale from 'dayjs/locale/id'
 import ShinyButton from '@/components/magicui/shiny-button'
 import { sendGTMEvent } from '@next/third-parties/google'
 import Image from 'next/image'
+import { event as eventGA } from '@/lib/gtag'
 
 dayjs.extend(relativeTime)
 dayjs.locale(locale)
@@ -31,6 +32,16 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
         ? 'click_ppdb_button_new_promo'
         : 'click_ppdb_button_mutation_promo'
     sendGTMEvent({ event: event, value: 1 })
+    eventGA({
+      action: 'click', // This is the action you want to track
+      category: 'Button', // Category for the event
+      label: 'PPDB Button Promo', // Label for the event
+      value: '1', // Optional value; can be a number or string
+    })
+    // Alternatively, you can use the custom event_name parameter if required
+    window.gtag('event', event, {
+      event_name: value,
+    })
     const url = {
       baru:
         'https://docs.google.com/forms/d/e/1FAIpQLScBFjzVsAviSEm2VHx2jFctbA-pUAPaCSMxx2Cr2DI5OjWB4g/viewform?usp=pp_url&entry.611144641=' +

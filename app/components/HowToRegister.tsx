@@ -76,9 +76,7 @@ export function Keunggulan() {
                 {value[0]?.number}
               </div>
               <h3 className="mb-2 text-2xl font-bold">{value[0]?.title}</h3>
-              <p className="text-lg font-medium text-justify">
-                {value[0]?.description}
-              </p>
+              <p className="text-lg font-medium">{value[0]?.description}</p>
             </div>
           </div>
           <div className="w-full md:w-1/2 px-4">

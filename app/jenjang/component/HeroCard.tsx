@@ -115,10 +115,14 @@ interface AccordionProps {
 
 export const Accordions: React.FC<AccordionProps> = ({ data }) => {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="multiple" className="w-full">
       {data.map((item, index) => (
-        <AccordionItem key={index} value={`item-${index}`}>
-          <AccordionTrigger className="text-lg sm:text-xl font-bold hover:no-underline sm:hover:text-2xl">
+        <AccordionItem
+          key={index}
+          value={`item-${index}`}
+          className="border my-2 px-4 rounded-lg"
+        >
+          <AccordionTrigger className="text-base sm:text-xl font-bold hover:no-underline sm:hover:text-2xl">
             {item.title}
           </AccordionTrigger>
           <AccordionContent className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg mb-4">
