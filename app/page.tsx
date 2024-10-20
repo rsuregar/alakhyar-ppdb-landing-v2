@@ -32,6 +32,7 @@ export default function Home() {
   const comingSoonData = comingSoon as ComingSoon;
 
   const handleClick = ({ event, value }: { event: string; value: any }) => {
+    console.log("click", event, value);
     sendGTMEvent({ event: event, value: value });
   };
   return (

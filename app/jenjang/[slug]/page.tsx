@@ -6,6 +6,7 @@ import { useFirebase } from "@/hooks/useFirebase";
 import { remoteConfigs } from "@/types/firebase";
 import CallToAction from "@/app/components/CallToAction";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { Separator } from "@/components/ui/separator";
 
 const colors = {
   tkit: {
@@ -59,7 +60,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     remoteConfigs.PPDB_KETERANGAN
   ) as any;
 
-  const {value: jadwal } = useFirebase(remoteConfigs.PPDB_JADWAL) as any;
+  const { value: jadwal } = useFirebase(remoteConfigs.PPDB_JADWAL) as any;
 
   function parseData(value: any, slug: string) {
     const syaratData = value[slug as keyof typeof value];
@@ -74,7 +75,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
       : keterangan?.pembayaran?.official;
 
   const gelombang2 = `Gelombang II dibuka dari tanggal ${jadwal?.batch2} jika kuota belum terpenuhi (${jadwal?.kuota?.[slug]}) siswa`;
-
 
   const accordionData = [
     {
@@ -118,14 +118,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
     },
     {
       title: "Informasi Lainnya",
-      content: gelombang2
+      content: gelombang2,
     },
   ];
 
-  const handleClick = ({
-    event,
-    value,
-  }: { event: string; value: any }) => {
+  const handleClick = ({ event, value }: { event: string; value: any }) => {
     sendGTMEvent({ event: event, value: value });
   };
 
@@ -139,8 +136,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
         handleClick={() => handleClick({ event: `register-${slug}`, value: 1 })}
       />
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
-      <div className="text-3xl font-bold border-b pb-2">Syarat Pendaftaran <br/> {title[slug as keyof typeof title]}</div>
-      <Accordions data={accordionData} />
+        <div className="text-3xl md:text-4xl font-bold pb-3 text-left md:text-center md:max-w-screen-sm mx-auto">
+          Syarat Pendaftaran <br />
+          <span className="text-3xl md:text-3xl text-sky-700">{title[slug as keyof typeof title]}</span>
+        </div>
+        <Separator />
+        <Accordions data={accordionData} />
       </div>
       <div className="my-16"></div>
       <OfficialWebCard />

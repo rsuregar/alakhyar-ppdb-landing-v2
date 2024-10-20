@@ -15,11 +15,13 @@ const ReviewCard = ({
   name,
   title,
   description,
+  job = '-'
 }: {
   avatar: string;
   name: string;
   title: string;
   description: string;
+  job: string;
 }) => {
 
   return (
@@ -33,12 +35,12 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt={name} src={avatarApi(name)} />
+        {/* <img className="rounded-full" width="32" height="32" alt={name} src={avatarApi(name)} /> */}
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+          <figcaption className="text-sm font-bold dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{title}</p>
+          <p className="text-xs font-medium dark:text-white/40">{title} | {job}</p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{description}</blockquote>
