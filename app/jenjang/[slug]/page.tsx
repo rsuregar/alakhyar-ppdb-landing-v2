@@ -6,6 +6,8 @@ import { useFirebase } from '@/hooks/useFirebase'
 import { remoteConfigs } from '@/types/firebase'
 import CallToAction from '@/app/components/CallToAction'
 import { sendGTMEvent } from '@next/third-parties/google'
+import { track } from '@vercel/analytics'
+import { event as eventGA } from '@/lib/gtag'
 // import { Separator } from '@/components/ui/separator'
 
 const colors = {
@@ -122,6 +124,26 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   const handleClick = ({ event, value }: { event: string; value: any }) => {
     sendGTMEvent({ event: event, value: value })
+
+    eventGA({
+      action: 'click', // This is the action you want to track
+      category: 'Button', // Category for the event
+      label: 'PPDB Button By Jenjang', // Label for the event
+      value: '1', // Optional value; can be a number or string
+    })
+    // Alternatively, you can use the custom event_name parameter if required
+    window.gtag('event', event, {
+      event_name: value,
+    })
+
+    track(
+      event,
+      {
+        value: value,
+        location: slug + '-jenjang-section',
+      },
+      { flags: ['register-ppdb-button-jenjang'] }
+    )
   }
 
   return (
