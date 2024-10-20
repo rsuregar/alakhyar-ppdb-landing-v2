@@ -174,13 +174,7 @@ const DATA = {
   },
 }
 
-export function DockDemo({
-  whatsAppText,
-  isMobile,
-}: {
-  whatsAppText: string
-  isMobile?: boolean
-}) {
+export function DockDemo({ whatsAppText }: { whatsAppText: string }) {
   return (
     <div className="fixed bottom-3 sm:bottom-10 left-0 w-full z-50">
       <TooltipProvider>

@@ -6,6 +6,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import locale from 'dayjs/locale/id'
 import ShinyButton from '@/components/magicui/shiny-button'
 import { sendGTMEvent } from '@next/third-parties/google'
+import Image from 'next/image'
 
 dayjs.extend(relativeTime)
 dayjs.locale(locale)
@@ -47,16 +48,20 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
     <div className="md:container mx-auto mt-[4.6rem] md:mt-12">
       <div className="bg-gradient-to-br from-red-700 to-rose-400 text-white text-center py-10 px-16 md:px-20 rounded-lg relative overflow-hidden">
         {/* The background image with low opacity */}
-        <img
+        <Image
           src="/assets/logo-alakhyar.png"
           className="absolute left-0 top-0 md:-ml-16 h-full opacity-10"
           style={{ objectFit: 'cover' }}
+          width={400}
+          height={200}
           alt="Watermark"
         />
 
-        <img
+        <Image
           src="/assets/promo.webp"
           className="h-24 mx-auto mb-4 rounded-lg"
+          width={200}
+          height={200}
           alt="Promo"
         />
         <h3
