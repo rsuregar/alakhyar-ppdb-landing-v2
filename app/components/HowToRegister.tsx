@@ -35,7 +35,7 @@ export function HowToRegister() {
         </div>
       </section>
       <img src="/assets/pattern.png" className="w-full" alt="pattern" />
-      <div className="absolute sm:mt-0 top-[10%] sm:left-[16%] sm:w-[72%] sm:h-[66%] w-full h-full left-0 p-3 sm:p-0">
+      <div className="absolute sm:mt-0 top-[10%] sm:left-[16%] sm:w-[72%] sm:h-[66%] w-full h-screen left-0 p-3 sm:p-0">
         <img
           src="/assets/how-to-register.webp"
           alt="Hero Video"
@@ -56,7 +56,7 @@ export function Keunggulan() {
   const ungguls: PPDB_KEUNGGULAN[] = !isMobile ? value.slice(1) : value
 
   return (
-    <section className=" bg-white dark:bg-gray-950 relative mt-20 md:mt-32 py-4">
+    <section className=" bg-white dark:bg-gray-950 relative mt-32 md:mt-32">
       <DotPattern
         className={cn(
           '[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]'
