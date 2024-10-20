@@ -8,6 +8,7 @@ import ShinyButton from '@/components/magicui/shiny-button'
 import { sendGTMEvent } from '@next/third-parties/google'
 import Image from 'next/image'
 import { event as eventGA } from '@/lib/gtag'
+import { track } from '@vercel/analytics'
 
 dayjs.extend(relativeTime)
 dayjs.locale(locale)
@@ -42,6 +43,15 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
     window.gtag('event', event, {
       event_name: value,
     })
+
+    track(
+      event,
+      {
+        value: value,
+        location: 'promo-section',
+      },
+      { flags: ['register-ppdb-button-promo'] }
+    )
     const url = {
       baru:
         'https://docs.google.com/forms/d/e/1FAIpQLScBFjzVsAviSEm2VHx2jFctbA-pUAPaCSMxx2Cr2DI5OjWB4g/viewform?usp=pp_url&entry.611144641=' +

@@ -20,6 +20,7 @@ import PulsatingButton from '@/components/magicui/pulsating-button'
 import PromoComponent from './components/PromoComponent'
 // import { ImageMarquee } from './components/ImageMarquee'
 import { event as eventGA } from '@/lib/gtag'
+import { track } from '@vercel/analytics'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -49,6 +50,13 @@ export default function Home() {
     window.gtag('event', event, {
       event_name: value,
     })
+    track(
+      event,
+      {
+        value: value,
+      },
+      { flags: ['register-ppdb-button'] }
+    )
   }
   return (
     <>
