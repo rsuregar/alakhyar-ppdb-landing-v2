@@ -23,9 +23,13 @@ export function SiteFooter() {
     return () => window.removeEventListener('resize', handleResize) // Cleanup
   }, [])
 
+  const phoneNumber = '6285215161778'
+  const message =
+    'Assalamualaikum, saya ingin bertanya tentang Al Akhyar Islamic School'
+
   const whatsAppText = isMobile
-    ? `whatsapp://send?phone=${value?.whatsApp?.official}`
-    : `https://web.whatsapp.com/send?phone=${value?.whatsApp?.official}`
+    ? `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
 
   return (
     <>
