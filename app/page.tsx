@@ -164,7 +164,7 @@ export default function Home() {
                 width={1824}
                 height={1080}
                 priority
-                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none"
+                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none mt-[4.5rem]"
               />
             </div>
           </div>
