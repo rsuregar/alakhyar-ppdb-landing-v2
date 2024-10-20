@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       <BlurFade key={'hero'} delay={0.004 * 0.05} inView>
-        <div className="mx-auto max-w-9xl mt-2">
+        <div className="mx-auto max-w-9xl mt-1">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
               viewBox="0 0 1024 1024"
