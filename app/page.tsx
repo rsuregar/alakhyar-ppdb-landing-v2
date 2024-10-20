@@ -173,9 +173,9 @@ export default function Home() {
       <BlurFade key={'official'} delay={0.1} inView>
         <OfficialWebCard roundedClass={'rounded-none'} />
       </BlurFade>
-      <BlurFade key={'footer'} delay={0.08 * 0.05} inView>
+      {/* <BlurFade key={'image'} delay={0.08 * 0.05} inView>
         <ImageMarquee />
-      </BlurFade>
+      </BlurFade> */}
       <BlurFade key={'cta'} delay={0.08 * 0.05} inView>
         <CallToAction />
       </BlurFade>

@@ -2,10 +2,8 @@ import Marquee from '@/components/magicui/marquee'
 
 const reviews = [
   {
-    name: 'Jack',
-    username: '@jack',
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: 'https://avatar.vercel.sh/jack',
+    body: 'Sedang belajar menanam tanaman hias',
+    img: '/assets/gallery-1.jpg',
   },
   {
     name: 'Jill',
@@ -42,7 +40,7 @@ const ReviewCard = ({ img, body }: { img: string; body: string }) => {
 
   return (
     <figure
-      className="relative w-36 md:w-48 cursor-pointer overflow-hidden rounded-xl"
+      className="relative w-36 h-36 md:w-48 md:h-48 cursor-pointer overflow-hidden rounded-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -50,7 +48,7 @@ const ReviewCard = ({ img, body }: { img: string; body: string }) => {
         width={120}
         height={120}
         placeholder="empty"
-        className="w-full h-full object-cover rounded-xl"
+        className={`w-full h-full object-cover rounded-xl transition-transform duration-300 ${isHovered ? '' : 'filter grayscale'}`}
         alt={body}
         src={img}
       />
