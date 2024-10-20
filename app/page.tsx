@@ -93,7 +93,7 @@ export default function Home() {
               />
               <div className="z-10 flex justify-center sm:justify-start">
                 {comingSoonData?.show && (
-                  <div className="text-left flex items-center border rounded-xl py-1 px-2 mb-6 lg:mb-2 sm:font-bold">
+                  <div className="text-left flex items-center border rounded-xl py-1 px-2 mb-2 lg:mb-2 sm:font-bold">
                     🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{' '}
                     <span
                       className={cn(
