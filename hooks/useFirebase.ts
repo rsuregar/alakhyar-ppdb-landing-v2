@@ -1,64 +1,66 @@
-'use client';
+'use client'
 
-import { remoteConfig } from '@/config/firebaseConfig';
-import { getValue, fetchAndActivate } from 'firebase/remote-config';
-import { useState, useEffect } from 'react';
-import { defaultRemoteConfigValues } from '@/types/firebase'; // Adjust the import path
+import { remoteConfig } from '@/config/firebaseConfig'
+import { getValue, fetchAndActivate } from 'firebase/remote-config'
+import { useState, useEffect } from 'react'
+import { defaultRemoteConfigValues } from '@/types/firebase' // Adjust the import path
 
-type FirebaseValue = string | number | boolean | Record<string, any> | null;
+type FirebaseValue = string | number | boolean | Record<string, any> | null
 
 interface UseFirebaseResult {
-  value: FirebaseValue;
-  loading: boolean;
+  value: FirebaseValue
+  loading: boolean
 }
 
 export const useFirebase = (key: string): UseFirebaseResult => {
-  const [configValue, setConfigValue] = useState<FirebaseValue>(defaultRemoteConfigValues[key]);
-  const [loading, setLoading] = useState(true);
+  const [configValue, setConfigValue] = useState<FirebaseValue>(
+    defaultRemoteConfigValues[key]
+  )
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getConfigValue = async () => {
-      const firebaseRemoteConfig = remoteConfig;
+      const firebaseRemoteConfig = remoteConfig
       if (firebaseRemoteConfig) {
         try {
-          setLoading(true);
-          await fetchAndActivate(firebaseRemoteConfig);
-          const value = getValue(firebaseRemoteConfig, key);
-          
+          setLoading(true)
+          await fetchAndActivate(firebaseRemoteConfig)
+          const value = getValue(firebaseRemoteConfig, key)
+
           // If there's a valid fetched value, replace the default
-          const rawValue = value.asString();
-          let parsedValue: FirebaseValue = defaultRemoteConfigValues[key]; // Start with default
+          const rawValue = value.asString()
+          let parsedValue: FirebaseValue = defaultRemoteConfigValues[key] // Start with default
 
           // Try to parse as JSON first
           try {
-            parsedValue = JSON.parse(rawValue) as Record<string, any>; // Assume parsed value is a Record if JSON
+            parsedValue = JSON.parse(rawValue) as Record<string, any> // Assume parsed value is a Record if JSON
           } catch {
             // If JSON parsing fails, check if it's a number or boolean
             if (!isNaN(Number(rawValue))) {
-              parsedValue = Number(rawValue);
+              parsedValue = Number(rawValue)
             } else if (rawValue.toLowerCase() === 'true') {
-              parsedValue = true;
+              parsedValue = true
             } else if (rawValue.toLowerCase() === 'false') {
-              parsedValue = false;
+              parsedValue = false
             } else {
-              parsedValue = rawValue; // Default to string if no other type matches
+              parsedValue = rawValue // Default to string if no other type matches
             }
           }
 
-          setConfigValue(parsedValue); // Update state with fetched value
+          setConfigValue(parsedValue) // Update state with fetched value
         } catch (error) {
-          console.error('Error fetching remote config:', error);
+          console.error('Error fetching remote config:', error)
         } finally {
-          setLoading(false);
+          setLoading(false)
         }
       } else {
-        console.error('Firebase remote config not initialized');
-        setLoading(false);
+        console.error('Firebase remote config not initialized')
+        setLoading(false)
       }
-    };
+    }
 
-    getConfigValue();
-  }, [key]);
+    getConfigValue()
+  }, [key])
 
-  return { value: configValue, loading };
-};
+  return { value: configValue, loading }
+}

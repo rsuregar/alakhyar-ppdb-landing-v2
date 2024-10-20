@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import Link from "next/link";
+import * as React from 'react'
+import Link from 'next/link'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,14 +12,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
+} from '@/components/ui/navigation-menu'
+import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 export function NavLink() {
-  const pathname = usePathname();
-   // Split the pathname by "/" and get the last part
-   const lastSegment = pathname?.split('/').filter(Boolean).pop();
+  const pathname = usePathname()
+  // Split the pathname by "/" and get the last part
+  const lastSegment = pathname?.split('/').filter(Boolean).pop()
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -28,8 +28,8 @@ export function NavLink() {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
-                lastSegment === undefined && "text-sky-700 bg-sky-100"
+                'hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent',
+                lastSegment === undefined && 'text-sky-700 bg-sky-100'
               )}
             >
               Home
@@ -41,8 +41,8 @@ export function NavLink() {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
-                lastSegment === "jadwal" && "text-sky-700 bg-sky-100"
+                'hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent',
+                lastSegment === 'jadwal' && 'text-sky-700 bg-sky-100'
               )}
             >
               Jadwal
@@ -53,8 +53,8 @@ export function NavLink() {
           <NavigationMenuTrigger
             className={cn(
               navigationMenuTriggerStyle(),
-              "hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent",
-              pathname.includes("jenjang") && "text-sky-700 bg-sky-100"
+              'hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent',
+              pathname.includes('jenjang') && 'text-sky-700 bg-sky-100'
             )}
           >
             Jenjang Pendidikan
@@ -69,8 +69,8 @@ export function NavLink() {
                   >
                     <div className="p-4 text-sm border-l-4 border-sky-500 text-stone-700 dark:text-stone-200">
                       <blockquote className="italic">
-                      &quot;Education is the most powerful weapon which you can use
-                        to change the world.&ldquo;
+                        &quot;Education is the most powerful weapon which you
+                        can use to change the world.&ldquo;
                       </blockquote>
                       <p className="mt-2 text-xs text-gray-600 dark:text-white">
                         - Nelson Mandela
@@ -87,17 +87,19 @@ export function NavLink() {
               </li>
               <ListItem
                 href="/jenjang/tkit"
-                title="RA Al Akhyar"
+                title="TK Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                Informasi lengkap Pendaftaran calon peserta didik RA Al Akhyar
+                Informasi lengkap Pendaftaran calon peserta didik TK Islam Al
+                Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/sdit"
                 title="SD Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                Informasi lengkap Pendaftaran calon peserta didik SD Islam Al Akhyar
+                Informasi lengkap Pendaftaran calon peserta didik SD Islam Al
+                Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/smpit"
@@ -120,15 +122,15 @@ export function NavLink() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  );
+  )
 }
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, ...props }, ref) => {
-  const param = usePathname();
-  const lastSegment = param?.split("/").filter(Boolean).pop();
+  const param = usePathname()
+  const lastSegment = param?.split('/').filter(Boolean).pop()
   return (
     <li>
       <Link ref={ref} href={props?.href as string} legacyBehavior passHref>
@@ -136,9 +138,10 @@ const ListItem = React.forwardRef<
           <a
             ref={ref}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-300 dark:hover:text-sky-700",
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-300 dark:hover:text-sky-700',
               className,
-              props?.href?.includes(lastSegment as string) && "bg-sky-50 dark:text-sky-700"
+              props?.href?.includes(lastSegment as string) &&
+                'bg-sky-50 dark:text-sky-700'
             )}
             {...props}
           >
@@ -150,6 +153,6 @@ const ListItem = React.forwardRef<
         </NavigationMenuLink>
       </Link>
     </li>
-  );
-});
-ListItem.displayName = "ListItem";
+  )
+})
+ListItem.displayName = 'ListItem'

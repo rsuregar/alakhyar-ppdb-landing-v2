@@ -1,20 +1,38 @@
-import { useFirebase } from "@/hooks/useFirebase";
-import { cn } from "@/lib/utils";
-import { remoteConfigs } from "@/types/firebase";
+import { useFirebase } from '@/hooks/useFirebase'
+import { cn } from '@/lib/utils'
+import { remoteConfigs } from '@/types/firebase'
+import { useEffect, useState } from 'react'
 
 /* eslint-disable @next/next/no-img-element */
 export default function CallToAction({
   rounded = false,
 }: {
-  rounded?: boolean;
+  rounded?: boolean
 }) {
-  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
+  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    handleResize() // Check initial size
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize) // Cleanup
+  }, [])
+
+  const whatsAppText = isMobile
+    ? `whatsapp://send?phone=${value?.whatsApp?.official}`
+    : `https://web.whatsapp.com/send?phone=${value?.whatsApp?.official}`
+
   return (
     <div className="mx-auto z-50">
       <div
         className={cn(
-          "xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row",
-          rounded ? "rounded-2xl" : "rounded-none"
+          'xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row',
+          rounded ? 'rounded-2xl' : 'rounded-none'
         )}
       >
         <div className="w-full lg:w-3/6 relative">
@@ -26,12 +44,12 @@ export default function CallToAction({
         </div>
         <div className="w-full lg:w-2/3 sm:mt-0">
           <h2 className="font-sans mt-5 md:mt-0 text-3xl sm:text-5xl text-white font-black mb-7 text-center lg:text-left">
-            Unggul dan Berakhlak? <br />{" "}
-            <div className="mt-3">Al Akhyar pilihannya.</div>{" "}
+            Unggul dan Berakhlak? <br />{' '}
+            <div className="mt-3">Al Akhyar pilihannya.</div>{' '}
           </h2>
           <div className="flex items-center sm:flex-col sm:gap-7 md:flex-row lg:justify-start justify-center">
             <a
-              href={`https://wa.me/${value?.whatsApp?.official}`}
+              href={whatsAppText}
               rel="noopener noreferrer"
               className="sm:w-auto text-[#075E54] bg-white hover:bg-green-50 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg inline-flex items-center justify-center px-6 py-3 mr-1"
             >
@@ -80,5 +98,5 @@ export default function CallToAction({
         </div>
       </div>
     </div>
-  );
+  )
 }

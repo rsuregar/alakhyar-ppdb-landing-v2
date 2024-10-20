@@ -1,43 +1,58 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
+'use client'
 
-import { TestimoniMarquee } from "./components/TestimoniMarquee";
-import { HowToRegister, Keunggulan } from "./components/HowToRegister";
-import OfficialWebCard from "./components/OfficialWebsiteCard";
-import CallToAction from "./components/CallToAction";
-import BlurFade from "@/components/magicui/blur-fade";
-import Image from "next/image";
-import { useFirebase } from "@/hooks/useFirebase";
-import { remoteConfigs } from "@/types/firebase";
-import { ComingSoon } from "@/types/ppdb";
-import { sendGTMEvent } from "@next/third-parties/google";
-import { cn } from "@/lib/utils";
-import { ChevronRight } from "lucide-react";
-import PulsatingButton from "@/components/magicui/pulsating-button";
-import PromoComponent from "./components/PromoComponent";
+import {
+  TestimoniMarquee,
+  TestimoniVertical,
+} from './components/TestimoniMarquee'
+import { HowToRegister, Keunggulan } from './components/HowToRegister'
+import OfficialWebCard from './components/OfficialWebsiteCard'
+import CallToAction from './components/CallToAction'
+import BlurFade from '@/components/magicui/blur-fade'
+import Image from 'next/image'
+import { useFirebase } from '@/hooks/useFirebase'
+import { remoteConfigs } from '@/types/firebase'
+import { ComingSoon } from '@/types/ppdb'
+import { sendGTMEvent } from '@next/third-parties/google'
+import { cn } from '@/lib/utils'
+import { ChevronRight } from 'lucide-react'
+import PulsatingButton from '@/components/magicui/pulsating-button'
+import PromoComponent from './components/PromoComponent'
+import { ImageMarquee } from './components/ImageMarquee'
+import { event as eventGA } from '@/lib/gtag'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
     remoteConfigs.PPDB_COMING_SOON_INFO
-  ) as any;
+  ) as any
 
   const { value: tahunAjaran } = useFirebase(
     remoteConfigs.PPDB_TAHUN_AJARAN
-  ) as any;
+  ) as any
 
-  const { value: isOpen } = useFirebase(remoteConfigs.PPDB_OPEN) as any;
+  const { value: isOpen } = useFirebase(remoteConfigs.PPDB_OPEN) as any
 
-  const { value: promo } = useFirebase(remoteConfigs?.PPDB_SPECIAL_PROMO) as any;
+  const { value: promo } = useFirebase(remoteConfigs?.PPDB_SPECIAL_PROMO) as any
 
-  const comingSoonData = comingSoon as ComingSoon;
+  const comingSoonData = comingSoon as ComingSoon
 
   const handleClick = ({ event, value }: { event: string; value: any }) => {
-    console.log("click", event, value);
-    sendGTMEvent({ event: event, value: value });
-  };
+    // console.log('click', event, value)
+    sendGTMEvent({ event: event, value: value })
+    eventGA({
+      action: 'click', // This is the action you want to track
+      category: 'Button', // Category for the event
+      label: 'PPDB Button Register', // Label for the event
+      value: '1', // Optional value; can be a number or string
+    })
+    // Alternatively, you can use the custom event_name parameter if required
+    window.gtag('event', event, {
+      event_name: value,
+    })
+  }
   return (
     <>
-      <BlurFade key={"hero"} delay={0.004 * 0.05} inView>
+      <BlurFade key={'hero'} delay={0.004 * 0.05} inView>
         <div className="mx-auto max-w-9xl mt-2">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
@@ -63,7 +78,7 @@ export default function Home() {
               <div className="z-10 flex justify-center sm:justify-start">
                 {comingSoonData?.show && (
                   <div className="text-left flex items-center border rounded-xl py-1 px-2 mb-6 lg:mb-2 sm:font-bold">
-                    🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
+                    🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{' '}
                     <span
                       className={cn(
                         `inline animate-gradient bg-gradient-to-r from-white via-gray-200 to-white bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-xs sm:text-base text-left`
@@ -76,7 +91,7 @@ export default function Home() {
                 )}
               </div>
               <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-5xl">
-                PPDB{" "}
+                PPDB{' '}
                 {comingSoonData?.show
                   ? comingSoonData?.tahun_ajaran
                   : tahunAjaran}
@@ -96,7 +111,7 @@ export default function Home() {
                     target="_blank"
                     onClick={() =>
                       handleClick({
-                        event: "click_ppdb_button_new_homepage",
+                        event: 'click_ppdb_button_new_homepage',
                         value: 1,
                       })
                     }
@@ -111,7 +126,7 @@ export default function Home() {
                   target="_blank"
                   onClick={() =>
                     handleClick({
-                      event: "click_ppdb_button_mutation_homepage",
+                      event: 'click_ppdb_button_mutation_homepage',
                       value: 1,
                     })
                   }
@@ -125,22 +140,22 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            
+
             <div className="relative h-80 mt-16 -mb-20 md:mb-0 lg:mt-8 justify-center">
               <Image
                 alt="App screenshot"
                 src="/assets/web-branding.webp"
                 width={1824}
-              height={1080}
+                height={1080}
+                priority
                 className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none"
               />
             </div>
           </div>
         </div>
-        
       </BlurFade>
 
-      <BlurFade key={"promo"} delay={0.1} inView>
+      <BlurFade key={'promo'} delay={0.1} inView>
         <div className="-mb-20 sm:mt-0 sm:mb-0">
           <PromoComponent value={promo} />
         </div>
@@ -148,18 +163,22 @@ export default function Home() {
 
       <section className="sm:container grid items-center gap-6 pb-6 pt-20 md:py-10">
         {/* <HeroSection /> */}
-        <TestimoniMarquee />
-        <BlurFade key={"register"} delay={0.1} inView>
+        {/* <TestimoniMarquee /> */}
+        <TestimoniVertical />
+        <BlurFade key={'register'} delay={0.1} inView>
           <HowToRegister />
           <Keunggulan />
         </BlurFade>
       </section>
-      <BlurFade key={"official"} delay={0.1} inView>
-          <OfficialWebCard roundedClass={'rounded-none'} />
-        </BlurFade>
-      <BlurFade key={"cta"} delay={0.08 * 0.05} inView>
+      <BlurFade key={'official'} delay={0.1} inView>
+        <OfficialWebCard roundedClass={'rounded-none'} />
+      </BlurFade>
+      {/* <BlurFade key={'image'} delay={0.08 * 0.05} inView>
+        <ImageMarquee />
+      </BlurFade> */}
+      <BlurFade key={'cta'} delay={0.08 * 0.05} inView>
         <CallToAction />
       </BlurFade>
     </>
-  );
+  )
 }

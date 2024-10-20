@@ -1,134 +1,143 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { DockDemo } from "@/app/components/Dock";
-import { remoteConfigs } from "@/types/firebase";
-import { useFirebase } from "@/hooks/useFirebase";
+import { useEffect, useState } from 'react'
+import { DockDemo } from '@/app/components/Dock'
+import { remoteConfigs } from '@/types/firebase'
+import { useFirebase } from '@/hooks/useFirebase'
+import BlurFade from './magicui/blur-fade'
 
 export function SiteFooter() {
-  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any;
-  const [isMobile, setIsMobile] = useState(false);
+  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+      setIsMobile(window.innerWidth < 768)
+    }
 
-    handleResize(); // Check initial size
-    window.addEventListener("resize", handleResize);
+    handleResize() // Check initial size
+    window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener("resize", handleResize); // Cleanup
-  }, []);
+    return () => window.removeEventListener('resize', handleResize) // Cleanup
+  }, [])
+
+  const whatsAppText = isMobile
+    ? `whatsapp://send?phone=${value?.whatsApp?.official}`
+    : `https://web.whatsapp.com/send?phone=${value?.whatsApp?.official}`
 
   return (
     <>
-      <DockDemo whatsAppText={`https://wa.me/${value?.whatsApp?.official}`} />
-      <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <div className="md:flex md:justify-between">
-            <div className="mb-6 md:mb-0">
-              <a href={"https://alakhyar.sch.id"} className="flex items-center">
-                <img
-                  className="w-auto h-8 sm:h-10"
-                  src="/assets/logo-2.png"
-                  alt="al akhyar"
-                />
-              </a>
-              <div className="border-t py-3 mt-5">
-                <p className="font-bold">Kantor Yayasan, SD dan SMP:</p>
-                Jl. Arung Teko, No.99 Sudiang, Biringkanaya Makassar. 90242.
+      <DockDemo whatsAppText={whatsAppText} />
+      <BlurFade key={'footer'} delay={0.08 * 0.05} inView>
+        <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0 -z-10">
+          <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div className="md:flex md:justify-between">
+              <div className="mb-6 md:mb-0">
+                <a
+                  href={'https://alakhyar.sch.id'}
+                  className="flex items-center"
+                >
+                  <img
+                    className="w-auto h-8 sm:h-10"
+                    src="/assets/logo-2.png"
+                    alt="al akhyar"
+                  />
+                </a>
+                <div className="border-t py-3 mt-5">
+                  <p className="font-bold">Kantor Yayasan, SD dan SMP:</p>
+                  Jl. Arung Teko, No.99 Sudiang, Biringkanaya Makassar. 90242.
+                </div>
+                <div className="border-t py-3 mt-2">
+                  <p className="font-bold">Koperasi, TK dan SMA:</p>
+                  Jl. Arung Teko, No.100 Sudiang, Biringkanaya Makassar. 90242.
+                </div>
               </div>
-              <div className="border-t py-3 mt-2">
-                <p className="font-bold">Koperasi, TK dan SMA:</p>
-                Jl. Arung Teko, No.100 Sudiang, Biringkanaya Makassar. 90242.
+              <div className="py-5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.1380809846955!2d119.52902247444308!3d-5.081357494895452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf02a7e1d35b4f%3A0xe97b2e160c12d82c!2sAl%20Akhyar%20Islamic%20School%20Makassar!5e0!3m2!1sen!2sid!4v1699535720923!5m2!1sen!2sid"
+                  className="border-none rounded-lg w-full lg:w-[450px] h-60 lg:h-60 -mt-4 lg:mt-0 mb-5 lg:mb-0"
+                  allowFullScreen={true}
+                  loading="lazy"
+                  title="alakhyar"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div className="grid grid-cols-2 gap-8 sm:gap-8 sm:mt-10 md:mt-10 sm:grid-cols-2 ">
+                <div>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                    About us
+                  </h2>
+                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                    <li className="mb-2">
+                      <a
+                        href="https://alakhyar.sch.id/academics/tk-paud-alakhyar/"
+                        className="hover:underline"
+                      >
+                        TK/RA
+                      </a>
+                    </li>
+                    <li className="mb-2">
+                      <a
+                        href="https://alakhyar.sch.id/academics/sd-alakhyar/"
+                        className="hover:underline"
+                      >
+                        SD
+                      </a>
+                    </li>
+                    <li className="mb-2">
+                      <a
+                        href="https://alakhyar.sch.id/academics/smp-alakhyar/"
+                        className="hover:underline"
+                      >
+                        SMP
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://alakhyar.sch.id/academics/sma-alakhyar/"
+                        className="hover:underline"
+                      >
+                        SMA
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                    Follow us
+                  </h2>
+                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                    <li className="mb-4">
+                      <a
+                        href="https://www.instagram.com/p/CzWRorqxBe8/"
+                        className="hover:underline "
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.youtube.com/@AlAkhyarMakassar"
+                        className="hover:underline"
+                      >
+                        Youtube
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="py-5">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.1380809846955!2d119.52902247444308!3d-5.081357494895452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf02a7e1d35b4f%3A0xe97b2e160c12d82c!2sAl%20Akhyar%20Islamic%20School%20Makassar!5e0!3m2!1sen!2sid!4v1699535720923!5m2!1sen!2sid"
-                className="border-none rounded-lg w-full lg:w-[450px] h-60 lg:h-60 -mt-4 lg:mt-0 mb-5 lg:mb-0"
-                allowFullScreen={true}
-                loading="lazy"
-                title="alakhyar"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-8 sm:mt-10 md:mt-10 sm:grid-cols-2 ">
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  About us
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-2">
-                    <a
-                      href="https://alakhyar.sch.id/academics/tk-paud-alakhyar/"
-                      className="hover:underline"
-                    >
-                      TK/RA
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://alakhyar.sch.id/academics/sd-alakhyar/"
-                      className="hover:underline"
-                    >
-                      SD
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://alakhyar.sch.id/academics/smp-alakhyar/"
-                      className="hover:underline"
-                    >
-                      SMP
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://alakhyar.sch.id/academics/sma-alakhyar/"
-                      className="hover:underline"
-                    >
-                      SMA
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  Follow us
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-4">
-                    <a
-                      href="https://www.instagram.com/p/CzWRorqxBe8/"
-                      className="hover:underline "
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.youtube.com/@AlAkhyarMakassar"
-                      className="hover:underline"
-                    >
-                      Youtube
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
-          <div className="sm:flex sm:items-center sm:justify-between -mt-4 lg:mt-0 mb-6 lg:mb-0 text-xs lg:text-base text-center lg:text-left">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2004 - {new Date().getFullYear()}{" "}
-              <a href={"https://alakhyar.sch.id"} className="hover:underline">
-                Al Akhyar Islamic School Makassar.
-              </a>
-            </span>
-            {/* <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+            <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
+            <div className="sm:flex sm:items-center sm:justify-between -mt-4 lg:mt-0 mb-6 lg:mb-0 text-xs lg:text-base text-center lg:text-left">
+              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                © 2004 - {new Date().getFullYear()}{' '}
+                <a href={'https://alakhyar.sch.id'} className="hover:underline">
+                  Al Akhyar Islamic School Makassar.
+                </a>
+              </span>
+              {/* <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                   <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
@@ -160,9 +169,10 @@ export function SiteFooter() {
                   <span className="sr-only">Dribbble account</span>
               </a>
           </div> */}
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </BlurFade>
     </>
-  );
+  )
 }
