@@ -6,7 +6,7 @@ import { useFirebase } from '@/hooks/useFirebase'
 import { remoteConfigs } from '@/types/firebase'
 import CallToAction from '@/app/components/CallToAction'
 import { sendGTMEvent } from '@next/third-parties/google'
-import { Separator } from '@/components/ui/separator'
+// import { Separator } from '@/components/ui/separator'
 
 const colors = {
   tkit: {

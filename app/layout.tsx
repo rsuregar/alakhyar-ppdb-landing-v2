@@ -13,6 +13,7 @@ import { TailwindIndicator } from '@/components/tailwind-indicator'
 import type { Viewport } from 'next'
 import { SiteFooter } from '@/components/site-footer'
 import AnalyticsScript from './components/AnalyticsScript'
+import { Analytics } from '@vercel/analytics/react'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+      <Analytics />
       {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > */}
