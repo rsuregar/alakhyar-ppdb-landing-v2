@@ -47,7 +47,7 @@ const TimelineRegister = () => {
 
           <div className="bg-white dark:bg-gray-800 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Observasi Calon Siswa*
+              Observasi Calon Siswa
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {Object.entries(
@@ -76,18 +76,18 @@ const TimelineRegister = () => {
             </div>
           )}
 
-          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
+          {/* <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Pendaftaran Ulang/Pengambilan Perlengkapan
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal?.heregistrasi}
             </dd>
-          </div>
+          </div> */}
 
           <div className="bbg-white dark:bg-gray-800 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Open House (Ukhuwah)
+              Silaturahim Bersama Orang Tua<sup>*</sup>
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal &&
@@ -108,7 +108,7 @@ const TimelineRegister = () => {
 
           <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Kegiatan Masa Orientasi Siswa
+              MPLS Day (Masa Pengenalan Lingkungan Sekolah)
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal &&

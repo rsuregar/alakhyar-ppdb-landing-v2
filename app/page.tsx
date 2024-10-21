@@ -85,7 +85,7 @@ export default function Home() {
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
               <Image
                 src="/assets/logo.webp"
-                width={100}
+                width={150}
                 height={100}
                 priority
                 alt="logo"
