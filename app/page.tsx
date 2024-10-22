@@ -121,7 +121,7 @@ export default function Home() {
                 putra-putri Anda di sekolah kami!
               </p>
               <div className="mt-10 mb-10 sm:mb-0 flex items-center justify-center gap-x-6 lg:justify-start">
-                {isOpen ? (
+                {isOpen || true ? (
                   <a
                     href="https://s.alakhyar.sch.id/ppdb"
                     target="_blank"
