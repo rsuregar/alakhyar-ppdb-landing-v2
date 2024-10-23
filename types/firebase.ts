@@ -25,6 +25,7 @@ export const defaultRemoteConfigValues: Record<any, any> = {
   PPDB_KEUNGGULAN: [] as PPDB_KEUNGGULAN[],
   PPDB_SPECIAL_PROMO: null,
   PPDB_BOOKLET_BROSUR: null,
+  PPDB_FAQ: null,
 }
 
 // Define the object
@@ -49,4 +50,5 @@ export const remoteConfigs = {
   PPDB_KEUNGGULAN: 'PPDB_KEUNGGULAN',
   PPDB_SPECIAL_PROMO: 'PPDB_SPECIAL_PROMO',
   PPDB_BOOKLET_BROSUR: 'PPDB_BOOKLET_BROSUR',
+  PPDB_FAQ: 'PPDB_FAQ',
 }

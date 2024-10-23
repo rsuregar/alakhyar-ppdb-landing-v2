@@ -75,8 +75,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
   const syarats = parseData(value, slug)
   const berkasData = parseData(berkas, slug)
   const bookletData = booklet?.[slug as keyof typeof booklet]
-
-  console.log('booklet', bookletData)
   const banks =
     slug === 'tkit'
       ? keterangan?.pembayaran?.tkit

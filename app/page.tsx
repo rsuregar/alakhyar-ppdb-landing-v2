@@ -21,6 +21,8 @@ import PromoComponent from './components/PromoComponent'
 // import { ImageMarquee } from './components/ImageMarquee'
 import { event as eventGA } from '@/lib/gtag'
 import { track } from '@vercel/analytics'
+import { FaqComponent } from './components/FaqComponent'
+import SparklesText from '@/components/magicui/sparkles-text'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -106,12 +108,23 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-5xl">
+              {/* <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-5xl">
                 PPDB{' '}
                 {comingSoonData?.show
                   ? comingSoonData?.tahun_ajaran
                   : tahunAjaran}
-              </h2>
+              </h2> */}
+              <SparklesText
+                className="text-3xl font-bold tracking-tight text-stone-200 sm:text-6xl"
+                text={`
+                  PPDB 
+                ${
+                  comingSoonData?.show
+                    ? comingSoonData?.tahun_ajaran
+                    : tahunAjaran
+                }
+                `}
+              />
               <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-4xl">
                 Al Akhyar Islamic School
               </h2>
@@ -157,14 +170,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-80 mt-12 -mb-16 md:mb-0 lg:mt-8 justify-center">
+            <div className="relative h-80 mt-12 -mb-[4.5rem] md:mb-0 lg:mt-8 justify-center">
               <Image
                 alt="App screenshot"
                 src="/assets/web-branding.webp"
                 width={1824}
                 height={1080}
                 priority
-                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none mt-[4.6rem] 2xl:mt-[3rem]"
+                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[47rem] max-w-none md:mt-[8rem] 2xl:mt-[3rem]"
               />
             </div>
           </div>
@@ -192,9 +205,10 @@ export default function Home() {
       {/* <BlurFade key={'image'} delay={0.08 * 0.05} inView>
         <ImageMarquee />
       </BlurFade> */}
-      <BlurFade key={'cta'} delay={0.08 * 0.05} inView>
+      <BlurFade key={'cta'} delay={0.08 * 0.05} duration={1} inView>
         <CallToAction />
       </BlurFade>
+      <FaqComponent />
     </>
   )
 }

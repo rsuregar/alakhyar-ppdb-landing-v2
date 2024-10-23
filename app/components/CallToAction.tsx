@@ -28,7 +28,12 @@ export default function CallToAction({
     : `https://web.whatsapp.com/send?phone=${value?.whatsApp?.official}`
 
   return (
-    <div className="mx-auto z-50">
+    <div
+      className={cn(
+        'mx-auto z-50 shadow-lg',
+        rounded ? 'rounded-2xl' : 'rounded-none'
+      )}
+    >
       <div
         className={cn(
           'xl:p-24 gap-16 sm:gap-32 p-6 sm:p-12 bg-gradient-to-r from-sky-800 to-sky-900 flex  justify-between flex-col-reverse lg:flex-row',

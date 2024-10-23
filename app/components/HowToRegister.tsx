@@ -9,6 +9,7 @@ import DotPattern from '@/components/magicui/dot-pattern'
 import { cn } from '@/lib/utils'
 import { PPDB_KEUNGGULAN, remoteConfigs } from '@/types/firebase'
 import { useFirebase } from '@/hooks/useFirebase'
+import SparklesText from '@/components/magicui/sparkles-text'
 
 const BLUR_FADE_DELAY = 0.04
 
@@ -68,9 +69,13 @@ export function Keunggulan() {
             <span className="inline-block py-px px-2 mb-4 text-xs leading-5 text-sky-700 bg-sky-100 font-medium uppercase rounded-full shadow-sm">
               Mengapa memilih kami
             </span>
-            <h2 className="mb-6 text-2xl md:text-5xl  leading-tight font-bold tracking-tighter">
+            {/* <h2 className="mb-6 text-2xl md:text-5xl  leading-tight font-bold tracking-tighter">
               Al Akhyar Islamic School
-            </h2>
+            </h2> */}
+            <SparklesText
+              className="mb-6 text-4xl md:text-5xl leading-tight font-bold tracking-tighter"
+              text="Al Akhyar Islamic School"
+            />
             <div className="w-4/5 px-4 mb-8 hidden md:block">
               <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-sky-500 font-semibold rounded-full">
                 {value[0]?.number}

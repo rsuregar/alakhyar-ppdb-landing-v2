@@ -18,7 +18,7 @@ export default function Banner({ children, onClose }: BannerProps) {
   const { value } = useFirebase(remoteConfigs.PPDB_COMING_SOON_INFO) as any
   const comingSoonData = value as ComingSoon
 
-  console.log(comingSoonData)
+  // console.log(comingSoonData)
 
   const handleClose = () => {
     setIsVisible(false)

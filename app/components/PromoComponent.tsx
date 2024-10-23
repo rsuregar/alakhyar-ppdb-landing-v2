@@ -90,7 +90,7 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
           dangerouslySetInnerHTML={{ __html: value?.promo_text }}
         />
         <div className="flex justify-center items-center space-x-2 mb-6">
-          <span className="border-dashed border text-white text-2xl font-bold font-mono tracking-widest px-4 py-2 rounded-lg">
+          <span className="border-dashed border text-white text-2xl md:text-4xl font-bold font-mono tracking-widest px-4 py-2 rounded-lg">
             {value?.voucher_code}
           </span>
         </div>
