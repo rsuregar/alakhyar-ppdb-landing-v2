@@ -33,7 +33,7 @@ export const FaqComponent = () => {
             <AccordionItem
               value={`${faq.title}`}
               key={index}
-              className="border my-1 px-4 rounded-lg"
+              className="border my-1 px-4 rounded-lg mx-2 md:mx-0"
             >
               <AccordionTrigger className="text-base font-bold hover:no-underline hover:text-sky-600 data-[state=open]:text-sky-700 text-left">
                 {faq.title}
