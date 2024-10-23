@@ -82,7 +82,7 @@ export default function Home() {
                 </radialGradient>
               </defs>
             </svg>
-            <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
+            <div className="mx-auto md:max-w-md 2xl:max-w-2xl text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
               <Image
                 src="/assets/logo.webp"
                 width={150}
@@ -157,14 +157,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-80 mt-16 -mb-20 md:mb-0 lg:mt-8 justify-center">
+            <div className="relative h-80 mt-12 -mb-16 md:mb-0 lg:mt-8 justify-center">
               <Image
                 alt="App screenshot"
                 src="/assets/web-branding.webp"
                 width={1824}
                 height={1080}
                 priority
-                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none mt-[4.5rem]"
+                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[45rem] max-w-none mt-[4.6rem] 2xl:mt-[3rem]"
               />
             </div>
           </div>

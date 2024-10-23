@@ -1,7 +1,7 @@
 'use client'
 
 import OfficialWebCard from '@/app/components/OfficialWebsiteCard'
-import { Accordions, HeroCard } from '../component/HeroCard'
+import { Accordions, BookletCard, HeroCard } from '../component/HeroCard'
 import { useFirebase } from '@/hooks/useFirebase'
 import { remoteConfigs } from '@/types/firebase'
 import CallToAction from '@/app/components/CallToAction'
@@ -63,6 +63,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
   ) as any
 
   const { value: jadwal } = useFirebase(remoteConfigs.PPDB_JADWAL) as any
+  const { value: booklet } = useFirebase(
+    remoteConfigs.PPDB_BOOKLET_BROSUR
+  ) as any
 
   function parseData(value: any, slug: string) {
     const syaratData = value[slug as keyof typeof value]
@@ -71,6 +74,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   const syarats = parseData(value, slug)
   const berkasData = parseData(berkas, slug)
+  const bookletData = booklet?.[slug as keyof typeof booklet]
+
+  console.log('booklet', bookletData)
   const banks =
     slug === 'tkit'
       ? keterangan?.pembayaran?.tkit
@@ -153,8 +159,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
         description={desc[slug as keyof typeof desc]}
         image={image[slug as keyof typeof image]}
         color={colors[slug as keyof typeof colors]}
-        handleClick={() => handleClick({ event: `register-${slug}`, value: 1 })}
+        handleClick={() => handleClick({ event: `register_${slug}`, value: 1 })}
       />
+      {bookletData?.length > 0 && bookletData[0]?.booklet && (
+        <BookletCard bookletUrl={bookletData[0]?.booklet} />
+      )}
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
         <div className="text-3xl md:text-4xl font-bold pb-3 text-left md:text-center md:max-w-screen-sm mx-auto">
           Syarat Pendaftaran <br />

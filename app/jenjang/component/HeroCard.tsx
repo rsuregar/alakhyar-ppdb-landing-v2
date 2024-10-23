@@ -53,7 +53,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
               </radialGradient>
             </defs>
           </svg>
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+          <div className="mx-auto max-w-md 2xl:max-w-2xl text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-5xl">
               {title}
             </h2>
@@ -82,13 +82,13 @@ export const HeroCard: React.FC<HeroCardProps> = ({
               </a>
             </div>
           </div>
-          <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block">
+          <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block float-right">
             <Image
               alt="App"
               src={image || '/assets/web-barnding.webp'}
               width={1824}
               height={1080}
-              className="absolute left-0 top-0 w-[46rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 object-contain"
+              className="absolute left-0 top-0 w-[43rem] max-w-none rounded-md"
             />
           </div>
         </div>
@@ -131,5 +131,22 @@ export const Accordions: React.FC<AccordionProps> = ({ data }) => {
         </AccordionItem>
       ))}
     </Accordion>
+  )
+}
+
+interface BookletCardProps {
+  bookletUrl: string
+}
+
+export const BookletCard: React.FC<BookletCardProps> = ({ bookletUrl }) => {
+  return (
+    <div className="relative md:mt-12 -mb-2">
+      <iframe
+        src={bookletUrl}
+        className="inset-0 w-full h-screen sm:h-[700px] rounded-0 md:rounded-xl"
+        scrolling="no"
+        allowFullScreen={true}
+      ></iframe>
+    </div>
   )
 }

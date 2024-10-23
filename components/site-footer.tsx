@@ -4,12 +4,9 @@
 
 import { useEffect, useState } from 'react'
 import { DockDemo } from '@/app/components/Dock'
-import { remoteConfigs } from '@/types/firebase'
-import { useFirebase } from '@/hooks/useFirebase'
 import BlurFade from './magicui/blur-fade'
 
 export function SiteFooter() {
-  const { value } = useFirebase(remoteConfigs.PPDB_KETERANGAN) as any
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -38,7 +35,7 @@ export function SiteFooter() {
       <DockDemo whatsAppText={whatsAppText} />
       <BlurFade key={'footer'} delay={0.08 * 0.05} inView>
         <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0 -z-10">
-          <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a

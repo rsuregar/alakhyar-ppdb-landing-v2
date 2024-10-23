@@ -38,7 +38,7 @@ const OfficialWebCard: React.FC<Props> = ({ roundedClass }) => {
               </radialGradient>
             </defs>
           </svg>
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+          <div className="mx-auto md:max-w-lg 2xl:max-w-2xl text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-8 text-white">
               Kenali lebih banyak tentang Al Akhyar Islamic School
             </h2>
