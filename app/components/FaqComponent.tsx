@@ -36,10 +36,13 @@ export const FaqComponent = () => {
               className="border my-1 px-4 rounded-lg mx-2 md:mx-0"
             >
               <AccordionTrigger className="text-base font-bold hover:no-underline hover:text-sky-600 data-[state=open]:text-sky-700 text-left">
-                {faq.title}
+                <div className="px-1">{faq.title}</div>
               </AccordionTrigger>
               <AccordionContent>
-                <div dangerouslySetInnerHTML={{ __html: faq.content }} />
+                <div
+                  className="md:text-base mr-4 bg-gray-50 py-3 px-4 rounded-lg"
+                  dangerouslySetInnerHTML={{ __html: faq.content }}
+                />
               </AccordionContent>
             </AccordionItem>
           ))}

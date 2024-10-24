@@ -4,6 +4,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import locale from 'dayjs/locale/id'
+import isBetween from 'dayjs/plugin/isBetween'
 import ShinyButton from '@/components/magicui/shiny-button'
 import { sendGTMEvent } from '@next/third-parties/google'
 import Image from 'next/image'
@@ -11,6 +12,7 @@ import { event as eventGA } from '@/lib/gtag'
 import { track } from '@vercel/analytics'
 
 dayjs.extend(relativeTime)
+dayjs.extend(isBetween)
 dayjs.locale(locale)
 
 interface Props {
@@ -19,7 +21,16 @@ interface Props {
 }
 
 const PromoComponent: React.FC<Props> = ({ value }) => {
-  const showPromo = value && value.show
+  const startDate = dayjs(value?.start_date)
+  const endDate = dayjs(value?.end_date)
+  const currentDate = dayjs() // Mendapatkan tanggal saat ini
+
+  console.log('value', value)
+
+  // Periksa apakah promo dapat ditampilkan
+  const showPromo =
+    value && value.show && currentDate.isBetween(startDate, endDate, null, '[]')
+
   // Format the dates using Day.js
   const formattedStartDate = dayjs(value?.start_date)
     .locale('id')
