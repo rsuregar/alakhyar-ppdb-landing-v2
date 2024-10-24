@@ -25,7 +25,7 @@ const PromoComponent: React.FC<Props> = ({ value }) => {
   const endDate = dayjs(value?.end_date)
   const currentDate = dayjs() // Mendapatkan tanggal saat ini
 
-  console.log('value', value)
+  // console.log('value', value)
 
   // Periksa apakah promo dapat ditampilkan
   const showPromo =
