@@ -117,6 +117,14 @@ const config = {
             'background-position': '200%',
           },
         },
+        ripple: {
+          '0%, 100%': {
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+          '50%': {
+            transform: 'translate(-50%, -50%) scale(0.9)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -126,6 +134,7 @@ const config = {
         gradient: 'gradient 8s linear infinite',
         pulse: 'pulse var(--duration) ease-out infinite',
         rainbow: 'rainbow var(--speed, 2s) infinite linear',
+        ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
       },
       fontFamily: {
         sans: 'var(--font-sans)',

@@ -23,6 +23,7 @@ import { event as eventGA } from '@/lib/gtag'
 import { track } from '@vercel/analytics'
 import { FaqComponent } from './components/FaqComponent'
 import SparklesText from '@/components/magicui/sparkles-text'
+import Ripple from '@/components/ui/ripple'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -168,6 +169,7 @@ export default function Home() {
                   </PulsatingButton>
                 </a>
               </div>
+              <Ripple />
             </div>
 
             <div className="relative h-80 mt-12 -mb-[4.5rem] md:mb-0 lg:mt-8 justify-center">
