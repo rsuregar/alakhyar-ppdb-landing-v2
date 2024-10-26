@@ -176,7 +176,7 @@ const DATA = {
 
 export function DockDemo({ whatsAppText }: { whatsAppText: string }) {
   return (
-    <div className="fixed bottom-3 sm:bottom-10 left-0 w-full z-50">
+    <div className="fixed bottom-4 left-0 w-full z-10">
       <TooltipProvider>
         <Dock
           direction="middle"

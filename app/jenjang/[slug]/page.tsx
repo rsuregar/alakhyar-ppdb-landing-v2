@@ -8,6 +8,7 @@ import CallToAction from '@/app/components/CallToAction'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { track } from '@vercel/analytics'
 import { event as eventGA } from '@/lib/gtag'
+import { Skeleton } from '@/components/ui/skeleton'
 // import { Separator } from '@/components/ui/separator'
 
 const colors = {
@@ -63,7 +64,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
   ) as any
 
   const { value: jadwal } = useFirebase(remoteConfigs.PPDB_JADWAL) as any
-  const { value: booklet } = useFirebase(
+  const { value: booklet, loading } = useFirebase(
     remoteConfigs.PPDB_BOOKLET_BROSUR
   ) as any
 
@@ -159,9 +160,20 @@ const Page = ({ params }: { params: { slug: string } }) => {
         color={colors[slug as keyof typeof colors]}
         handleClick={() => handleClick({ event: `register_${slug}`, value: 1 })}
       />
-      {bookletData?.length > 0 && bookletData[0]?.booklet && (
-        <BookletCard bookletUrl={bookletData[0]?.booklet} />
+      {loading && (
+        <div className="flex flex-col mx-auto justify-center space-y-3 mt-6">
+          <Skeleton className="h-[125px] md:h-[300px] md:w-full rounded-xl" />
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-[250px] md:w-11/12" />
+            <Skeleton className="h-4 w-[200px] md:w-10/12" />
+            <Skeleton className="h-4 w-[200px] md:w-full" />
+          </div>
+        </div>
       )}
+
+      {bookletData?.length > 0 && bookletData[0]?.booklet ? (
+        <BookletCard bookletUrl={bookletData[0]?.booklet} />
+      ) : null}
       <div className="my-10 sm:my-16 px-6 sm:border sm:py-4 sm:rounded-xl">
         <div className="text-3xl md:text-4xl font-bold pb-3 text-left md:text-center md:max-w-screen-sm mx-auto">
           Syarat Pendaftaran <br />

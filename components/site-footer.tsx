@@ -5,6 +5,8 @@
 import { useEffect, useState } from 'react'
 import { DockDemo } from '@/app/components/Dock'
 import BlurFade from './magicui/blur-fade'
+import { RainbowButton } from './ui/rainbow-button'
+import { ArrowUpRight, LucideSquareArrowUpRight } from 'lucide-react'
 
 export function SiteFooter() {
   const [isMobile, setIsMobile] = useState(false)
@@ -30,11 +32,20 @@ export function SiteFooter() {
 
   // console.log('whatsAppText', whatsAppText)
 
+  const handleClick = () => {
+    window.open('https://s.alakhyar.sch.id/ppdb', '_blank')
+  }
+
   return (
     <>
+      <div className="fixed bottom-20 sm:bottom-4 right-4 z-50">
+        <RainbowButton className="flex gap-2" onClick={handleClick}>
+          Daftar Sekarang <ArrowUpRight />
+        </RainbowButton>
+      </div>
       <DockDemo whatsAppText={whatsAppText} />
       <BlurFade key={'footer'} delay={0.08 * 0.05} inView>
-        <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0 -z-10">
+        <footer className="bg-white dark:bg-gray-900 mt-4 sm:mt-0">
           <div className="mx-auto w-full container 2xl:max-w-screen-2xl p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
@@ -132,7 +143,7 @@ export function SiteFooter() {
                 </div>
               </div>
             </div>
-            <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
+            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
             <div className="sm:flex sm:items-center sm:justify-between -mt-4 lg:mt-0 mb-6 lg:mb-0 text-xs lg:text-base text-center lg:text-left">
               <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 © 2004 - {new Date().getFullYear()}{' '}
