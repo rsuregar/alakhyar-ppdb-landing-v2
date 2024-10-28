@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     apple: '/assets/apple-touch-icon.png',
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
   // appleWebApp: true,
   appLinks: {
     web: {
