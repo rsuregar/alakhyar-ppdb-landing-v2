@@ -24,6 +24,7 @@ import { track } from '@vercel/analytics'
 import { FaqComponent } from './components/FaqComponent'
 import SparklesText from '@/components/magicui/sparkles-text'
 import Ripple from '@/components/ui/ripple'
+import PopupModal from './components/PopupModal'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -188,6 +189,7 @@ export default function Home() {
 
       <BlurFade key={'promo'} delay={0.1} inView>
         <div className="-mb-20 sm:mt-0 sm:mb-0">
+          <PopupModal />
           <PromoComponent value={promo} />
         </div>
       </BlurFade>
