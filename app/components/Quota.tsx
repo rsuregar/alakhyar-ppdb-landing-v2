@@ -17,7 +17,7 @@ const Quota = () => {
 
   return (
     <div className="md:container mt-28 -mb-12 sm:mt-8 md:-mb-12 md:p-8 text-center">
-      <h2 className="text-2xl text- md:text-4xl leading-tight font-bold tracking-tighter text-center pointer-events-none whitespace-pre-wrap text-slate-900 bg-clip-text text-transparent dark:text-white">
+      <h2 className="text-2xl text- md:text-4xl leading-tight font-bold tracking-tighter text-center pointer-events-none whitespace-pre-wrap text-slate-900 dark:text-white">
         Sisa Kuota
       </h2>
       <p className="text-base sm:text-lg leading-tight tracking-tighter text-center pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-transparent dark:from-white dark:to-slate-900/10">
