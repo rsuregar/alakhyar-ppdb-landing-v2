@@ -24,6 +24,7 @@ import { track } from '@vercel/analytics'
 import { FaqComponent } from './components/FaqComponent'
 import SparklesText from '@/components/magicui/sparkles-text'
 import Ripple from '@/components/ui/ripple'
+import Quota from './components/Quota'
 
 export default function Home() {
   const { value: comingSoon } = useFirebase(
@@ -65,7 +66,7 @@ export default function Home() {
     <>
       <BlurFade key={'hero'} delay={0.004 * 0.05} inView>
         <div className="mx-auto max-w-9xl mt-1">
-          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:justify-between lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
               viewBox="0 0 1024 1024"
               aria-hidden="true"
@@ -85,7 +86,7 @@ export default function Home() {
                 </radialGradient>
               </defs>
             </svg>
-            <div className="mx-auto md:max-w-md 2xl:max-w-2xl text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
+            <div className="mx-auto md:max-w-xl 2xl:max-w-2xl text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left">
               <Image
                 src="/assets/logo.webp"
                 width={150}
@@ -116,7 +117,7 @@ export default function Home() {
                   : tahunAjaran}
               </h2> */}
               <SparklesText
-                className="text-3xl font-bold tracking-tight text-stone-200 sm:text-6xl"
+                className="text-3xl font-bold tracking-tight sm:text-6xl text-white mb-4"
                 text={`
                   PPDB 
                 ${
@@ -127,14 +128,14 @@ export default function Home() {
                 `}
               />
               <h2 className="text-3xl font-bold tracking-tight text-stone-200 sm:text-4xl">
-                Al Akhyar Islamic School
+                Al Akhyar Islamic School Makassar
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
                 🎓 <strong>Tunggu Apa Lagi?</strong> Berikan masa depan yang
                 cerah dengan bergabung bersama kami. Segera daftarkan
                 putra-putri Anda di sekolah kami!
               </p>
-              <div className="mt-10 mb-10 sm:mb-0 flex items-center justify-center gap-x-6 lg:justify-start">
+              <div className="mt-10 mb-10 sm:mb-0 flex flex-col md:flex-row items-center justify-center gap-6 lg:justify-start">
                 {isOpen || true ? (
                   <a
                     href="https://s.alakhyar.sch.id/ppdb"
@@ -172,17 +173,35 @@ export default function Home() {
               <Ripple />
             </div>
 
-            <div className="relative h-80 mt-12 -mb-[4.5rem] md:mb-0 lg:mt-8 justify-center">
+            <div className="relative w-full lg:w-auto">
+              <div className="lg:absolute lg:bottom-0 lg:right-0">
+                <Image
+                  alt="App screenshot"
+                  src="/assets/web-branding.webp"
+                  width={1824}
+                  height={1080}
+                  priority
+                  className="w-[22rem] md:w-[40rem] max-w-none"
+                />
+              </div>
+            </div>
+            {/* <div className="relative h-80 mt-12 -mb-[5rem] md:-mb-0 lg:mt-24 border border-white">
               <Image
                 alt="App screenshot"
                 src="/assets/web-branding.webp"
                 width={1824}
                 height={1080}
                 priority
-                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[47rem] max-w-none md:mt-[8rem] 2xl:mt-[3rem]"
+                className="md:absolute md:left-0 md:top-0 w-[22rem] md:w-[20rem] max-w-none md:mt-[8rem] 2xl:mt-[3rem]"
               />
-            </div>
+            </div> */}
           </div>
+        </div>
+      </BlurFade>
+
+      <BlurFade key={'quota'} delay={0.1} inView>
+        <div className="mb-12">
+          <Quota />
         </div>
       </BlurFade>
 
