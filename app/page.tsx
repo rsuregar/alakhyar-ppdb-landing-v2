@@ -119,7 +119,7 @@ export default function Home() {
               <SparklesText
                 className="text-3xl font-bold tracking-tight sm:text-6xl text-white mb-4"
                 text={`
-                  PPDB 
+                  SPMB 
                 ${
                   comingSoonData?.show
                     ? comingSoonData?.tahun_ajaran

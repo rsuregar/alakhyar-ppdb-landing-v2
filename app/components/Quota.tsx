@@ -9,11 +9,17 @@ const Quota = () => {
   ) as any
 
   const statsData = [
-    { value: 0, label: 'KB/TK Al Akhyar', hide: false },
+    { value: 0, label: 'KB-TK Al Akhyar', hide: false },
     { value: 0, label: 'SD Al Akhyar', hide: false },
     { value: 0, label: 'SMP Al Akhyar', hide: false },
     { value: 0, label: 'SMA Al Akhyar', hide: false },
   ]
+
+  const quotas = quota?.quotas || statsData
+
+  if (!quotas.show) {
+    return null
+  }
 
   return (
     <div className="md:container mt-28 -mb-12 sm:mt-8 md:-mb-12 md:p-8 text-center">
@@ -24,14 +30,14 @@ const Quota = () => {
         Jangan sampai kehabisan Kuota Kelas
       </p>
       <dl className="grid max-w-screen-xl grid-cols-2 gap-4 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-4 dark:text-white sm:p-8 justify-center items-center">
-        {(quota || statsData).map((stat: any, index: number) => (
+        {quotas.map((stat: any, index: number) => (
           <div
             key={index}
             className="flex flex-col items-center justify-center p-4 bg-black rounded-lg"
           >
             <dt className="mb-2 text-3xl font-extrabold">
               <NumberTicker
-                value={stat.value}
+                value={stat.value || 0}
                 className="whitespace-pre-wrap text-4xl md:text-6xl font-bold tracking-tighter leading-tight text-center pointer-events-none bg-gradient-to-b from-white to-gray-300 bg-clip-text text-transparent dark:from-white dark:to-slate-900/10"
               />
             </dt>
