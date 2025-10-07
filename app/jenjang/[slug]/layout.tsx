@@ -48,13 +48,5 @@ export async function generateMetadata({
 
 // PageLayout component
 export default async function PageLayout({ params }: PageLayoutProps) {
-  const { slug } = await params
-
-  return (
-    <Page
-      params={{
-        slug: slug,
-      }}
-    />
-  )
+  return <Page params={params} />
 }
