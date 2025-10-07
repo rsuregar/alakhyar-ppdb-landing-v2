@@ -1,11 +1,11 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  title: 'PPDB Al Akhyar Islamic School',
+  title: 'SPMB Al Akhyar Islamic School',
   description:
-    'Daftar sekarang di Al Akhyar Islamic School, sekolah Islam terbaik yang mengedepankan pendidikan holistik untuk anak. Temukan lingkungan belajar yang mendukung perkembangan akademis, karakter, dan spiritual anak melalui kurikulum Merdeka dan pendekatan Beyond Centers and Circle Time (BCCT). Pendaftaran PPDB terbuka untuk tingkat TK hingga SMA. ',
+    'Daftar sekarang di Al Akhyar Islamic School, sekolah Islam terbaik yang mengedepankan pendidikan holistik untuk anak. Temukan lingkungan belajar yang mendukung perkembangan akademis, karakter, dan spiritual anak melalui kurikulum Merdeka dan pendekatan Beyond Centers and Circle Time (BCCT). Pendaftaran SPMB terbuka untuk tingkat TK hingga SMA. ',
   keywords:
-    'PPDB Al Akhyar Islamic School, sekolah Islam terbaik, pendidikan holistik, sekolah Islam Makassar, TK Islam, SD Islam, SMP Islam, SMA Islam, kurikulum Merdeka, BCCT, PPDB Alakhyar, sekolah islam, sekolah islam makassar, SD, SMP, SMA, TK, PAUD, Alakhyar, Alakhyar Islamic School, PPDB, Penerimaan Peserta Didik Baru, PPDB Alakhyar, PPDB Alakhyar Islamic School, PPDB Makassar, PPDB Sekolah Islam, PPDB Sekolah Islam Makassar, PPDB SD, PPDB SMP, PPDB SMA, PPDB TK, PPDB PAUD',
+    'SPMB Al Akhyar Islamic School, sekolah Islam terbaik, pendidikan holistik, sekolah Islam Makassar, TK Islam, SD Islam, SMP Islam, SMA Islam, kurikulum Merdeka, BCCT, SPMB Alakhyar, sekolah islam, sekolah islam makassar, SD, SMP, SMA, TK, PAUD, Alakhyar, Alakhyar Islamic School, SPMB, Penerimaan Peserta Didik Baru, Sistem Penerimaan Murid Baru, SPMB Alakhyar, SPMB Alakhyar Islamic School, SPMB Makassar, SPMB Sekolah Islam, SPMB Sekolah Islam Makassar, SPMB SD, SPMB SMP, SPMB SMA, SPMB TK, SPMB PAUD',
   mainNav: [
     {
       title: 'Home',

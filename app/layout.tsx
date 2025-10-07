@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   // appleWebApp: true,
   appLinks: {
     web: {
-      url: 'https://ppdb.alakhyar.sch.id',
+      url: 'https://spmb.alakhyar.sch.id',
       should_fallback: false,
     },
   },
@@ -78,7 +78,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <>
             <SiteHeader />
             <main className="flex-1">{children}</main>
