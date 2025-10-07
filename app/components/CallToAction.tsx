@@ -1,3 +1,5 @@
+'use client'
+
 import { useFirebase } from '@/hooks/useFirebase'
 import { cn } from '@/lib/utils'
 import { remoteConfigs } from '@/types/firebase'
