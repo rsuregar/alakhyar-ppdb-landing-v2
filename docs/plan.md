@@ -18,11 +18,20 @@
   - Added `await` keyword when accessing `params.slug` in both `generateMetadata` and `PageLayout` functions
   - Made `PageLayout` component async
 
+### ✅ Dependency Resolution Fix (Completed)
+
+- **Issue**: Version mismatch between Next.js 15.5.4 and @next/third-parties 14.2.13 causing ERESOLVE errors
+- **Solution**:
+  - Updated `@next/third-parties` to version 15.5.4 to match Next.js version
+  - Used `--legacy-peer-deps` flag to resolve React 19 compatibility issues with Radix UI packages
+  - Resolved dependency conflicts between React 19.2.0 and older Radix UI components
+
 ## Current Status
 
 - ✅ Development server running successfully
 - ✅ SWC binary issues resolved
 - ✅ Async params compatibility fixed
+- ✅ Dependency conflicts resolved
 - ✅ No linting errors
 
 ## Technical Stack
