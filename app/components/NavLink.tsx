@@ -24,8 +24,9 @@ export function NavLink() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink
+          <NavigationMenuLink asChild>
+            <Link
+              href="/"
               className={cn(
                 navigationMenuTriggerStyle(),
                 'hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent',
@@ -33,12 +34,13 @@ export function NavLink() {
               )}
             >
               Home
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/jadwal" legacyBehavior passHref>
-            <NavigationMenuLink
+          <NavigationMenuLink asChild>
+            <Link
+              href="/jadwal"
               className={cn(
                 navigationMenuTriggerStyle(),
                 'hover:bg-sky-100 hover:text-sky-700 active:bg-sky-100 focus:bg-sky-100 focus:text-sky-700 bg-transparent',
@@ -46,8 +48,8 @@ export function NavLink() {
               )}
             >
               Jadwal
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="hover:bg-sky-100 rounded-lg">
           <NavigationMenuTrigger
@@ -133,25 +135,24 @@ const ListItem = React.forwardRef<
   const lastSegment = param?.split('/').filter(Boolean).pop()
   return (
     <li>
-      <Link ref={ref} href={props?.href as string} legacyBehavior passHref>
-        <NavigationMenuLink asChild>
-          <a
-            ref={ref}
-            className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-300 dark:hover:text-sky-700',
-              className,
-              props?.href?.includes(lastSegment as string) &&
-                'bg-sky-50 dark:text-sky-700'
-            )}
-            {...props}
-          >
-            <div className="text-sm font-bold leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </a>
-        </NavigationMenuLink>
-      </Link>
+      <NavigationMenuLink asChild>
+        <Link
+          ref={ref}
+          href={props?.href as string}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-sky-300 dark:hover:text-sky-700',
+            className,
+            props?.href?.includes(lastSegment as string) &&
+              'bg-sky-50 dark:text-sky-700'
+          )}
+          {...props}
+        >
+          <div className="text-sm font-bold leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </Link>
+      </NavigationMenuLink>
     </li>
   )
 })
