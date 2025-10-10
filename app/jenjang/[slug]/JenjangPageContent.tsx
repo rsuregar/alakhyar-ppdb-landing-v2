@@ -9,14 +9,14 @@ import { event as eventGA } from '@/lib/gtag'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const title = {
-  tkit: 'TK Islam Al Akhyar',
+  tkit: 'KB - TK Islam Al Akhyar',
   sdit: 'SD Islam Al Akhyar',
   smpit: 'SMP Islam Al Akhyar',
   smait: 'SMA Islam Al Akhyar',
 }
 
 const desc = {
-  tkit: 'Pendidikan dini menerima anak usia 3-5 tahun. Pada usia ini fokus pada perkembangan motorik kasar dan halus, kemandirian, serta meningkatkan kemampuan sosial melalui bermain.',
+  tkit: 'Pendidikan dini menerima anak usia 3-6 tahun. Pada usia ini fokus pada perkembangan motorik kasar dan halus, kemandirian, serta meningkatkan kemampuan sosial melalui bermain.',
   sdit: 'Pendidikan dasar menerima anak usia 6-12 tahun. Pada usia ini fokus pada pembelajaran akademik dan pembentukan karakter.',
   smpit:
     'Pendidikan menengah pertama menerima anak usia 13-15 tahun. Pada usia ini fokus pada pembelajaran akademik dan pembentukan karakter.',

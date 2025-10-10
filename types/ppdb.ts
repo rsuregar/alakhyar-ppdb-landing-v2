@@ -107,6 +107,7 @@ export interface Jadwal {
   pengumuman: string | null
   heregistrasi: string
   openhouse: OpenHouse
+  salam: OpenHouse
   observasi: Observasi
   observasi_2: Observasi
   mos: MOS

@@ -38,7 +38,7 @@ const TimelineRegister = () => {
         <dl>
           <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Pendaftaran online/offline
+              Pendaftaran online/offline Gel. {gelombang}
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {+gelombang === 1 ? jadwal?.buka : jadwal?.batch2}
@@ -47,7 +47,7 @@ const TimelineRegister = () => {
 
           <div className="bg-white dark:bg-gray-800 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Observasi Calon Siswa
+              Observasi Calon Murid Baru
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {Object.entries(
@@ -58,7 +58,11 @@ const TimelineRegister = () => {
                 .map(([key, value]) => (
                   <div key={key}>
                     <p>
-                      {key.toUpperCase().replace('IT', '')} : {value}
+                      {key
+                        .toUpperCase()
+                        .replace('IT', '')
+                        .replace('TK', 'KB - TK')}{' '}
+                      : {value}
                     </p>
                   </div>
                 ))}
@@ -85,24 +89,50 @@ const TimelineRegister = () => {
             </dd>
           </div> */}
 
-          <div className="bbg-white dark:bg-gray-800 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
+          <div className="bg-gray-50 dark:bg-gray-800 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
             <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Silaturahim Bersama Orang Tua<sup>*</sup>
+              Open House Calon Murid Baru
             </dt>
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal &&
                 Object.entries(jadwal?.openhouse || {})
-                  .filter(([key, value]) => value !== false)
+                  .filter(([_key, value]) => value !== false)
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace('IT', '')} : {value}
+                        {key
+                          .toUpperCase()
+                          .replace('IT', '')
+                          .replace('TK', 'KB - TK')}{' '}
+                        : {value}
                       </p>
                     </div>
                   ))}
               <div className="text-gray-500 dark:text-gray-400 text-xs">
                 *Waktu dan Tempat tentatif sesuai jenjang masing-masing
               </div>
+            </dd>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t-2 border-gray-200 dark:border-gray-700 border-dashed">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">
+              Silaturahim Awal Masuk Al Akhyar (SALAM)<sup>*</sup>
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
+              {jadwal &&
+                Object.entries(jadwal?.salam || {})
+                  .filter(([_key, value]) => value !== false)
+                  .map(([key, value]) => (
+                    <div key={key}>
+                      <p>
+                        {key
+                          .toUpperCase()
+                          .replace('IT', '')
+                          .replace('TK', 'KB - TK')}{' '}
+                        : {value}
+                      </p>
+                    </div>
+                  ))}
             </dd>
           </div>
 
@@ -113,11 +143,15 @@ const TimelineRegister = () => {
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal &&
                 Object.entries(jadwal?.mos || {})
-                  .filter(([key, value]) => value !== false)
+                  .filter(([_key, value]) => value !== false)
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace('IT', '')} : {value}
+                        {key
+                          .toUpperCase()
+                          .replace('IT', '')
+                          .replace('TK', 'KB - TK')}{' '}
+                        : {value}
                       </p>
                     </div>
                   ))}
@@ -131,11 +165,15 @@ const TimelineRegister = () => {
             <dd className="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
               {jadwal &&
                 Object.entries(jadwal?.kbm || {})
-                  .filter(([key, value]) => value !== false)
+                  .filter(([_key, value]) => value !== false)
                   .map(([key, value]) => (
                     <div key={key}>
                       <p>
-                        {key.toUpperCase().replace('IT', '')} : {value}
+                        {key
+                          .toUpperCase()
+                          .replace('IT', '')
+                          .replace('TK', 'KB - TK')}{' '}
+                        : {value}
                       </p>
                     </div>
                   ))}
