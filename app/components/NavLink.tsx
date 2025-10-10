@@ -89,11 +89,11 @@ export function NavLink() {
               </li>
               <ListItem
                 href="/jenjang/tkit"
-                title="TK Islam Al Akhyar"
+                title="KB -TK Islam Al Akhyar"
                 className="hover:bg-sky-100"
               >
-                Informasi lengkap Pendaftaran calon peserta didik TK Islam Al
-                Akhyar
+                Informasi lengkap Pendaftaran calon peserta didik KB - TK Islam
+                Al Akhyar
               </ListItem>
               <ListItem
                 href="/jenjang/sdit"
