@@ -39,7 +39,7 @@ export function MainNav({ items }: MainNavProps) {
         <span className="inline-block">
           {siteConfig.title} <br />
           <div className="text-xs -mt-1">
-            Penerimaan Peserta Didik Baru {tahunAjaran}
+            Sistem Penerimaan Murid Baru {tahunAjaran}
           </div>
         </span>
       </Link>

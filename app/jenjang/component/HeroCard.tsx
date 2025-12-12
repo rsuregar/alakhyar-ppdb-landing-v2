@@ -33,7 +33,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   return (
     <BlurFade key="hero" delay={0.4 * 0.05} inView>
       <div className="mx-auto max-w-9xl">
-        <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-xl  sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+        <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-0 -mb-20 sm:mb-0 sm:px-16 md:pt-24 lg:flex lg:justify-between lg:gap-x-20 lg:px-24 lg:pt-0">
           <svg
             viewBox="0 0 1024 1024"
             aria-hidden="true"
@@ -82,14 +82,17 @@ export const HeroCard: React.FC<HeroCardProps> = ({
               </a>
             </div>
           </div>
-          <div className="relative mt-16 h-80 lg:mt-8 hidden sm:block float-right">
-            <Image
-              alt="App"
-              src={image || '/assets/web-barnding.webp'}
-              width={1824}
-              height={1080}
-              className="absolute left-0 top-0 w-[43rem] max-w-none rounded-md"
-            />
+          <div className="relative w-full lg:w-auto">
+            <div className="lg:absolute lg:bottom-0 lg:right-0">
+              <Image
+                alt="App screenshot"
+                src={image || '/assets/web-branding.webp'}
+                width={1824}
+                height={1080}
+                priority
+                className="w-[22rem] md:w-[40rem] max-w-none"
+              />
+            </div>
           </div>
         </div>
       </div>
